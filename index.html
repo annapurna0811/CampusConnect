@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CampusConnect 2.0 — Real-Time Student Grievance Redressal & Notice Board</title>
-  <meta name="description" content="CampusConnect is a real-time, transparent student grievance redressal and notice board platform built with a high-fidelity Neo-Brutalist Gumroad aesthetic." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusConnect 2.0 — Real-Time Student Grievance Redressal &amp; Notice Board</title>
+  <meta name="description"
+    content="CampusConnect is a real-time, transparent student grievance redressal and notice board platform built with a high-fidelity Neo-Brutalist Gumroad aesthetic.">
 
   <!-- Google Fonts: Archivo & Space Mono -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;display=swap"
+    rel="stylesheet">
 
   <style>
     /* ==========================================================================
@@ -124,6 +128,7 @@
     .brut-btn-pink {
       background: var(--gum-pink);
     }
+
     .brut-btn-pink:hover {
       background: #ff75e2;
     }
@@ -131,6 +136,7 @@
     .brut-btn-yellow {
       background: var(--gum-yellow);
     }
+
     .brut-btn-yellow:hover {
       background: #f0bc00;
     }
@@ -143,6 +149,7 @@
       background: var(--gum-black);
       color: #ffffff;
     }
+
     .brut-btn-black:hover {
       background: #222222;
       color: var(--gum-yellow);
@@ -315,8 +322,17 @@
     }
 
     @keyframes pulse-ring {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.35); opacity: 0.6; }
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.35);
+        opacity: 0.6;
+      }
     }
 
     /* Notice Board Strip */
@@ -516,7 +532,7 @@
       transform: rotate(-1deg);
     }
 
-    /* Marquee Banner */
+    /* Marquee Running Banner */
     .marquee-container {
       background: var(--gum-pink);
       border-top: 2px solid var(--gum-black);
@@ -549,8 +565,13 @@
     }
 
     @keyframes marquee-scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
     }
 
     /* Section Headers */
@@ -789,8 +810,13 @@
     }
 
     @keyframes signal-loop {
-      0% { left: 2rem; }
-      100% { left: calc(100% - 2rem); }
+      0% {
+        left: 2rem;
+      }
+
+      100% {
+        left: calc(100% - 2rem);
+      }
     }
 
     .pipeline-node {
@@ -1334,26 +1360,110 @@
       .hero-grid {
         grid-template-columns: 1fr;
       }
+
       .form-grid {
         grid-template-columns: 1fr;
       }
+
       .footer-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
       }
-      .pipeline-line, .pipeline-signal-dot {
+
+      .pipeline-line,
+      .pipeline-signal-dot {
         display: none;
       }
+
       .pipeline-rail {
         flex-direction: column;
         gap: 3.5rem;
       }
+
       .pipeline-node-lbl {
         top: 64px;
       }
     }
   </style>
+  <style>
+    :root {
+      --gum-pink: #90d8ff !important;
+      --gum-pink-soft: #d6f0ff !important;
+    }
+
+    ::selection {
+      background: #90d8ff !important;
+      color: #000000 !important;
+    }
+
+    .brut-btn-pink {
+      background: #90d8ff !important;
+    }
+
+    .brut-btn-pink:hover {
+      background: #70c4f4 !important;
+    }
+
+    .text-stroke-pink {
+      color: #90d8ff !important;
+    }
+
+    .marquee-container {
+      background: #90d8ff !important;
+    }
+
+    .logo-box {
+      box-shadow: 2px 2px 0 #90d8ff !important;
+    }
+
+    .pipeline-signal-dot {
+      background: #90d8ff !important;
+    }
+
+    .pipeline-node.active {
+      background: #90d8ff !important;
+    }
+
+    .cat-pill.active {
+      background: #90d8ff !important;
+    }
+
+    .modal-close {
+      background: #90d8ff !important;
+    }
+
+    .upvote-btn.voted {
+      background: #90d8ff !important;
+    }
+
+    .upvote-btn:hover {
+      background: #d6f0ff !important;
+    }
+
+    .footer-links-title {
+      color: #90d8ff !important;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      box-shadow: 4px 4px 0 #90d8ff !important;
+    }
+
+    .countdown-box {
+      box-shadow: 4px 4px 0 #90d8ff !important;
+    }
+
+    .filter-pill.active {
+      box-shadow: 2px 2px 0 #90d8ff !important;
+    }
+
+    #progress-bar {
+      background: #90d8ff !important;
+    }
+  </style>
 </head>
+
 <body>
 
   <!-- Top Scroll Progress Bar -->
@@ -1366,28 +1476,25 @@
         <div class="logo-box">🏛️</div>
         <div>
           <div class="brand-title">CAMPUSCONNECT</div>
-          <div style="font-family: var(--font-mono); font-size: 0.65rem; font-weight: 700; color: #666;">
-            GRIEVANCE & NOTICE PLATFORM
+          <div style="font-family: var(--font-mono); font-size: 0.65rem; font-weight: 700; color: rgb(102, 102, 102);"
+            class="">
+            GRIEVANCE &amp; NOTICE PLATFORM
           </div>
         </div>
       </a>
 
       <nav>
-        <ul class="nav-links" style="display: none; @media(min-width: 980px){ display: flex; }">
-          <li><a href="#notices" class="nav-link">Notices</a></li>
-          <li><a href="#file-grievance" class="nav-link">File Issue</a></li>
-          <li><a href="#pipeline" class="nav-link">Pipeline</a></li>
-          <li><a href="#live-feed" class="nav-link">Live Feed</a></li>
-          <li><a href="#gallery" class="nav-link">Gallery</a></li>
-          <li><a href="#specs" class="nav-link">Specs</a></li>
-          <li><a href="#admin-portal" class="nav-link">Admin Portal</a></li>
+        <ul class="nav-links" style="display: flex;">
+          <li class=""><a href="#notice-board" class="nav-link">Notices</a></li>
+          <li class=""><a href="#file-grievance" class="nav-link">File Issue</a></li>
+          <li class=""></li>
+          <li class=""><a href="#live-feed" class="nav-link">Live Feed</a></li>
+          <li class=""><a href="#admin-portal" class="nav-link">Admin Portal</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
-        <span class="mono-badge pulse-live" style="background: var(--gum-paper);">
-          <span class="pulse-dot"></span> LIVE REDRESSAL
-        </span>
+
         <button id="admin-header-btn" class="brut-btn brut-btn-sm brut-btn-black" onclick="toggleAdminView()">
           ADMIN CONSOLE
         </button>
@@ -1400,12 +1507,13 @@
     <div class="container notice-wrapper">
       <div id="active-notice-box" class="notice-item">
         <span class="notice-badge" id="notice-cat-badge">EXAM</span>
-        <span id="notice-title-text" style="font-weight: 700;">Loading latest campus bulletin...</span>
+        <span id="notice-title-text" style="font-weight: 700;" class="">Loading latest campus bulletin...</span>
       </div>
       <div style="display: flex; gap: 0.5rem; align-items: center;">
         <button class="brut-btn brut-btn-sm" style="padding: 0.2rem 0.5rem;" onclick="cycleNotice(-1)">←</button>
         <button class="brut-btn brut-btn-sm" style="padding: 0.2rem 0.5rem;" onclick="cycleNotice(1)">→</button>
-        <button class="brut-btn brut-btn-sm brut-btn-yellow" style="padding: 0.2rem 0.6rem;" onclick="showAllNoticesModal()">VIEW ALL NOTICES (<span id="notices-count">3</span>)</button>
+        <button class="brut-btn brut-btn-sm brut-btn-yellow" style="padding: 0.2rem 0.6rem;"
+          onclick="showAllNoticesModal()">VIEW ALL NOTICES (<span id="notices-count" class="">3</span>)</button>
       </div>
     </div>
   </div>
@@ -1415,29 +1523,21 @@
     <div class="container hero-grid">
       <!-- Left Column -->
       <div>
-        <div class="hero-tagline">
-          <span>⚡</span> SECTION-01 · STUDENT DISPATCH CORE
-        </div>
+
         <h1 class="hero-title display-1">
-          Every campus issue, <br />
+          Every campus issue, <br>
           <span id="typewriter-text" class="text-stroke-pink">fixed in 24 hours.</span>
         </h1>
         <p class="hero-desc">
-          Tired of broken lab workstations, leaking hostel taps, or spotty campus Wi-Fi vanishing into red tape? CampusConnect publishes every ticket to a public, transparent ledger. Real accountability, real fast.
+          Tired of broken lab workstations, leaking hostel taps, or spotty campus Wi-Fi vanishing into red tape?
+          CampusConnect publishes every ticket to a public, transparent ledger. Real accountability, real fast.
         </p>
 
-        <div class="hero-actions">
-          <a href="#file-grievance" class="brut-btn brut-btn-pink">
-            <span>📝</span> FILE A GRIEVANCE NOW
-          </a>
-          <a href="#live-feed" class="brut-btn">
-            <span>📡</span> VIEW LIVE TICKETS (<span id="hero-total-tickets">6</span>)
-          </a>
-        </div>
+
 
         <div class="hero-stats">
           <div class="stat-card">
-            <div class="stat-val" style="color: var(--gum-pink);" id="stat-count-resolved">84%</div>
+            <div class="stat-val" style="color: rgb(144, 216, 255);" id="stat-count-resolved">84%</div>
             <div class="stat-lbl">Resolution Rate</div>
           </div>
           <div class="stat-card">
@@ -1453,50 +1553,7 @@
 
       <!-- Right Column: TechFest '26 Live Countdown & Stickers -->
       <div class="hero-card-stack">
-        <div class="hero-main-card">
-          <!-- Countdown Box -->
-          <div class="countdown-box">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <span class="mono-text" style="font-size: 0.78rem; font-weight: 700; color: var(--gum-yellow);">🚀 TECHFEST '26 DISPATCH</span>
-              <span class="mono-badge" style="background: var(--gum-red); color: #fff; border-color: #fff; font-size: 0.6rem;">COUNTDOWN</span>
-            </div>
-            <div class="countdown-digits">
-              <div class="countdown-unit">
-                <div class="countdown-num" id="cd-days">39</div>
-                <div class="countdown-lbl">Days</div>
-              </div>
-              <div class="countdown-unit">
-                <div class="countdown-num" id="cd-hours">14</div>
-                <div class="countdown-lbl">Hours</div>
-              </div>
-              <div class="countdown-unit">
-                <div class="countdown-num" id="cd-mins">28</div>
-                <div class="countdown-lbl">Mins</div>
-              </div>
-              <div class="countdown-unit">
-                <div class="countdown-num" id="cd-secs">42</div>
-                <div class="countdown-lbl">Secs</div>
-              </div>
-            </div>
-          </div>
 
-          <!-- Interactive Quick Ticker Preview -->
-          <div style="background: var(--gum-cream); border: 2px solid var(--gum-black); border-radius: 4px; padding: 1rem; margin-bottom: 1rem;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-              <span class="ticket-code">TICKET #CC-2026-1039</span>
-              <span class="ticket-status status-COMPLETED">COMPLETED</span>
-            </div>
-            <div style="font-weight: 800; font-size: 0.95rem; margin-bottom: 0.25rem;">C-Block Water Pipe Leak Sealed</div>
-            <p style="font-size: 0.8rem; color: #555;">Verified resolved by Hostel Warden with replacement brass valve.</p>
-          </div>
-
-          <!-- Stickers -->
-          <div style="margin-top: 1rem;">
-            <span class="sticker-badge sticker-pink">📌 ZERO RED TAPE</span>
-            <span class="sticker-badge sticker-yellow">⚡ DIRECT WARDEN ESCALATION</span>
-            <span class="sticker-badge sticker-mint">🔍 OPEN EVIDENCE PHOTO LOG</span>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -1520,70 +1577,17 @@
     </div>
   </div>
 
-  <!-- Section 2: Interactive 5-Step System Pipeline -->
-  <section class="section-wrap" id="pipeline" style="background: var(--gum-cream);">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow">WORKFLOW ARCHITECTURE</span>
-        <h2 class="section-title">The 5-Step Redressal Pipeline</h2>
-        <p class="section-sub">Hover or click any node along the transmission rail to inspect how an incident moves from initial student submission to verified field repair.</p>
-      </div>
 
-      <div class="pipeline-container">
-        <div class="pipeline-rail">
-          <div class="pipeline-line"></div>
-          <div class="pipeline-signal-dot"></div>
-
-          <div class="pipeline-node active" onclick="selectPipelineStep(0)">
-            <span>01</span>
-            <div class="pipeline-node-lbl">Submit Report</div>
-          </div>
-
-          <div class="pipeline-node" onclick="selectPipelineStep(1)">
-            <span>02</span>
-            <div class="pipeline-node-lbl">Photo Evidence</div>
-          </div>
-
-          <div class="pipeline-node" onclick="selectPipelineStep(2)">
-            <span>03</span>
-            <div class="pipeline-node-lbl">Admin Review</div>
-          </div>
-
-          <div class="pipeline-node" onclick="selectPipelineStep(3)">
-            <span>04</span>
-            <div class="pipeline-node-lbl">Fix In Motion</div>
-          </div>
-
-          <div class="pipeline-node" onclick="selectPipelineStep(4)">
-            <span>05</span>
-            <div class="pipeline-node-lbl">Verified Done</div>
-          </div>
-        </div>
-
-        <div class="pipeline-detail-card" id="pipeline-card">
-          <div>
-            <div class="mono-badge" id="pipe-badge" style="background: var(--gum-pink); margin-bottom: 0.5rem;">STEP 01 OF 05</div>
-            <h3 id="pipe-title" style="font-size: 1.35rem; font-weight: 900; margin-bottom: 0.35rem;">1. Instant Ticket Generation</h3>
-            <p id="pipe-desc" style="max-width: 650px; font-size: 0.95rem; color: #333;">
-              Student logs an issue through the grievance portal with department selection, room location, and urgency tags. An immutable ticket code (CC-2026-XXXX) is provisioned instantly.
-            </p>
-          </div>
-          <div style="text-align: right;">
-            <div class="mono-text" style="font-size: 0.72rem; color: #666;">DISPATCH SLA</div>
-            <div class="mono-text" id="pipe-sla" style="font-size: 1.5rem; font-weight: 900; color: var(--gum-black);">&lt; 15 Minutes</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Section 3: Grievance Submission Form -->
-  <section class="section-wrap" id="file-grievance" style="background: var(--gum-paper); border-top: 2px solid var(--gum-black); border-bottom: 2px solid var(--gum-black);">
+  <section class="section-wrap" id="file-grievance"
+    style="background: var(--gum-paper); border-top: 2px solid var(--gum-black); border-bottom: 2px solid var(--gum-black);">
     <div class="container">
       <div class="section-header">
         <span class="section-eyebrow">SUBMIT A TICKET</span>
         <h2 class="section-title">Report a Campus Issue</h2>
-        <p class="section-sub">All submissions enter the public grievance queue immediately. No login required for students.</p>
+        <p class="section-sub">All submissions enter the public grievance queue immediately. No login required for
+          students.</p>
       </div>
 
       <div class="form-card">
@@ -1591,98 +1595,96 @@
           <div class="form-grid">
             <!-- Department Dropdown -->
             <div class="form-group">
-              <label for="dept-select">Department / Responsibility Desk *</label>
-              <select id="dept-select" required>
+              <label for="dept-select" class="">Department / Responsibility Desk *</label>
+              <select id="dept-select" required="">
                 <option value="">Select Responsible Department...</option>
                 <option value="Computer Science">Computer Science Lab</option>
-                <option value="Hostel Office">Hostel Office & Wardens</option>
+                <option value="Hostel Office">Hostel Office &amp; Wardens</option>
                 <option value="Mechanical Engg.">Mechanical Workshop</option>
-                <option value="Electronics & Comm.">Electronics & VLSI Lab</option>
+                <option value="Electronics &amp; Comm.">Electronics &amp; VLSI Lab</option>
                 <option value="Information Tech.">Information Technology / Wi-Fi</option>
-                <option value="Sanitation">Sanitation & Water Maintenance</option>
+                <option value="Sanitation">Sanitation &amp; Water Maintenance</option>
                 <option value="Administration">General Campus Administration</option>
               </select>
             </div>
 
             <!-- Specific Location -->
             <div class="form-group">
-              <label for="loc-input">Specific Location / Room / Block *</label>
-              <input type="text" id="loc-input" placeholder="e.g. C-Block 2nd Floor Stairwell or Room A-204" required />
+              <label for="loc-input" class="">Specific Location / Room / Block *</label>
+              <input type="text" id="loc-input" placeholder="e.g. C-Block 2nd Floor Stairwell or Room A-204"
+                required="">
             </div>
 
             <!-- Category Selector Pills -->
             <div class="form-group full-width">
-              <label>Issue Category *</label>
+              <label class="">Issue Category *</label>
               <div class="category-pills">
                 <div class="cat-pill active" onclick="selectCategory('SANITATION', this)">
-                  <span>💧</span> Sanitation / Leaks
+                  <span class="">💧</span> Sanitation / Leaks
                 </div>
                 <div class="cat-pill" onclick="selectCategory('LAB_EQUIPMENT', this)">
-                  <span>💻</span> Lab Equipment
+                  <span class="">💻</span> Lab Equipment
                 </div>
                 <div class="cat-pill" onclick="selectCategory('CLASSROOM', this)">
-                  <span>🪑</span> Classroom & Furniture
+                  <span class="">🪑</span> Classroom &amp; Furniture
                 </div>
                 <div class="cat-pill" onclick="selectCategory('HOSTEL', this)">
-                  <span>🏠</span> Hostel Living
+                  <span class="">🏠</span> Hostel Living
                 </div>
                 <div class="cat-pill" onclick="selectCategory('IT_WIFI', this)">
-                  <span>📶</span> IT & Wi-Fi
+                  <span class="">📶</span> IT &amp; Wi-Fi
                 </div>
                 <div class="cat-pill" onclick="selectCategory('SAFETY', this)">
-                  <span>⚠️</span> Campus Safety
+                  <span class="">⚠️</span> Campus Safety
                 </div>
               </div>
-              <input type="hidden" id="selected-category" value="SANITATION" />
+              <input type="hidden" id="selected-category" value="SANITATION">
             </div>
 
             <!-- Issue Description -->
             <div class="form-group full-width">
-              <label for="desc-input">Detailed Description of the Problem *</label>
-              <textarea id="desc-input" rows="4" placeholder="Describe what broke, when it happened, and how it impacts classes or dorms..." required></textarea>
+              <label for="desc-input" class="">Detailed Description of the Problem *</label>
+              <textarea id="desc-input" rows="4"
+                placeholder="Describe what broke, when it happened, and how it impacts classes or dorms..."
+                required=""></textarea>
             </div>
 
             <!-- Photo Upload & Demo Samples -->
             <div class="form-group full-width">
-              <label>Evidence Photo (Optional but Recommended)</label>
+              <label class="">Evidence Photo (Optional but Recommended)</label>
               <div class="photo-upload-area" onclick="document.getElementById('file-upload').click()">
-                <div style="font-size: 2rem; margin-bottom: 0.25rem;">📸</div>
-                <div style="font-weight: 700; font-size: 0.95rem;">Click to upload an image from your device</div>
-                <div class="mono-text" style="font-size: 0.72rem; color: #666; margin-top: 0.25rem;">PNG, JPG, WEBP accepted (auto-compressed on client)</div>
-                <input type="file" id="file-upload" accept="image/*" style="display: none;" onchange="handleFileSelected(event)" />
+                <div style="font-size: 2rem; margin-bottom: 0.25rem;" class="">📸</div>
+                <div style="font-weight: 700; font-size: 0.95rem;" class="">Click to upload an image from your device
+                </div>
+                <div class="mono-text" style="font-size: 0.72rem; color: rgb(102, 102, 102); margin-top: 0.25rem;">PNG,
+                  JPG, WEBP accepted (auto-compressed on client)</div>
+                <input type="file" id="file-upload" accept="image/*" style="display: none;"
+                  onchange="handleFileSelected(event)">
               </div>
 
               <!-- Quick Demo Photo Pickers -->
-              <div style="margin-top: 0.75rem;">
-                <span class="mono-text" style="font-size: 0.72rem; font-weight: 700;">OR PICK DEMO EVIDENCE:</span>
-                <div class="preset-photos">
-                  <button type="button" class="preset-btn" onclick="setPresetPhoto('water-leak')">💧 Burst Pipe</button>
-                  <button type="button" class="preset-btn" onclick="setPresetPhoto('bench')">🪑 Broken Bench</button>
-                  <button type="button" class="preset-btn" onclick="setPresetPhoto('lab-pc')">🖥️ Dead Workstation</button>
-                  <button type="button" class="preset-btn" onclick="setPresetPhoto('projector')">📽️ Loose Projector</button>
-                  <button type="button" class="preset-btn" onclick="setPresetPhoto('cooler')">🧊 Leaking Cooler</button>
-                </div>
-              </div>
+
 
               <!-- Live Preview -->
               <div id="image-preview-container" style="display: none;" class="image-preview-box">
-                <img id="preview-img" src="" alt="Evidence preview" class="preview-thumb" />
+                <img id="preview-img" src="" alt="Evidence preview" class="preview-thumb">
                 <div style="flex: 1;">
-                  <div class="mono-text" style="font-size: 0.78rem; font-weight: 700;" id="preview-filename">evidence.jpg</div>
-                  <div class="mono-text" style="font-size: 0.68rem; color: #666;">Ready for submission</div>
+                  <div class="mono-text" style="font-size: 0.78rem; font-weight: 700;" id="preview-filename">
+                    evidence.jpg</div>
+                  <div class="mono-text" style="font-size: 0.68rem; color: rgb(102, 102, 102);">Ready for submission
+                  </div>
                 </div>
-                <button type="button" class="brut-btn brut-btn-sm brut-btn-pink" onclick="clearSelectedImage()">REMOVE</button>
+                <button type="button" class="brut-btn brut-btn-sm brut-btn-pink"
+                  onclick="clearSelectedImage()">REMOVE</button>
               </div>
             </div>
           </div>
 
           <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-            <div class="mono-text" style="font-size: 0.78rem; color: #555;">
-              🛡️ Submissions are public and visible to faculty & students.
-            </div>
-            <button type="submit" class="brut-btn brut-btn-pink brut-shadow-lg" id="submit-btn" style="padding: 0.85rem 2rem;">
-              <span>🚀</span> BROADCAST TICKET TO QUEUE
-            </button>
+
+            <button type="submit" class="brut-btn brut-btn-pink brut-shadow-lg" id="submit-btn"
+              style="padding: 0.85rem 2rem;">
+              <span class="">submit</span></button>
           </div>
         </form>
       </div>
@@ -1692,33 +1694,42 @@
   <!-- Section 4: Live Complaints Feed -->
   <section class="section-wrap" id="live-feed">
     <div class="container">
-      <div class="section-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+      <div class="section-header"
+        style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
         <div>
-          <span class="section-eyebrow">TRANSPARENT QUEUE</span>
-          <h2 class="section-title">Live Grievance Feed</h2>
-          <p class="section-sub">Public ledger of all active tickets. Upvote urgent issues to boost their repair priority.</p>
+          <h2 class="section-title" style="font-size: 2.5rem; font-weight: 900; margin-bottom: 0.5rem;">Live Grievance
+            Feed</h2>
+          <p class="section-sub" style="color: rgb(68, 68, 68); font-size: 1rem;">Public ledger of all active tickets.
+            Upvote urgent issues to boost their repair priority.</p>
         </div>
-        <div style="display: flex; gap: 0.5rem;">
-          <button class="brut-btn brut-btn-sm brut-btn-yellow" onclick="simulateNewIncomingTicket()">
-            <span>⚡</span> SIMULATE LIVE EVENT
+        <div>
+          <button class="brut-btn brut-btn-sm brut-btn-yellow" onclick="simulateNewIncomingTicket()"
+            style="font-weight: 800; font-size: 0.85rem; padding: 0.5rem 1rem;">
+            <span class="">⚡</span> SIMULATE LIVE EVENT
           </button>
         </div>
       </div>
 
-      <!-- Filter & Search Toolbar -->
-      <div class="filter-bar">
-        <div class="search-input-wrap">
-          <input type="text" id="feed-search" placeholder="🔍 Search ticket ID, location, department or keyword..." oninput="filterTickets()" />
+      <!-- Filter & Search Controls -->
+      <div
+        style="background: var(--gum-paper); border: 2px solid var(--gum-black); border-radius: 4px; padding: 1.25rem; box-shadow: var(--shadow-hard); margin-bottom: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+        <!-- Row 1: Search input + Status filters -->
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
+          <div style="flex: 1; min-width: 280px;">
+            <input type="text" id="feed-search" placeholder="🔍 Search ticket ID, location, department or keyword..."
+              oninput="filterTickets()"
+              style="width: 100%; border: 2px solid var(--gum-black); border-radius: 4px; padding: 0.65rem 0.9rem; font-size: 0.9rem; font-family: var(--font-sans); background: #ffffff; box-shadow: 2px 2px 0 var(--gum-black); outline: none;">
+          </div>
+          <div class="filter-pills" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button class="filter-pill active" onclick="setStatusFilter('ALL', this)">All Statuses</button>
+            <button class="filter-pill" onclick="setStatusFilter('SUBMITTED', this)">Submitted</button>
+            <button class="filter-pill" onclick="setStatusFilter('IN_PROGRESS', this)">In Progress</button>
+            <button class="filter-pill" onclick="setStatusFilter('COMPLETED', this)">Completed</button>
+          </div>
         </div>
 
-        <div class="filter-pills">
-          <button class="filter-pill active" onclick="setStatusFilter('ALL', this)">All Statuses</button>
-          <button class="filter-pill" onclick="setStatusFilter('SUBMITTED', this)">Submitted</button>
-          <button class="filter-pill" onclick="setStatusFilter('IN_PROGRESS', this)">In Progress</button>
-          <button class="filter-pill" onclick="setStatusFilter('COMPLETED', this)">Completed</button>
-        </div>
-
-        <div class="filter-pills">
+        <!-- Row 2: Category filters -->
+        <div class="filter-pills" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
           <button class="filter-pill active" onclick="setCategoryFilter('ALL', this)">All Categories</button>
           <button class="filter-pill" onclick="setCategoryFilter('SANITATION', this)">Sanitation</button>
           <button class="filter-pill" onclick="setCategoryFilter('LAB_EQUIPMENT', this)">Labs</button>
@@ -1728,116 +1739,248 @@
         </div>
       </div>
 
-      <!-- Tickets Grid -->
-      <div class="tickets-grid" id="tickets-container">
-        <!-- Rendered dynamically by JavaScript -->
+      <!-- Tickets Grid (6 cards matching IMAGE_1) -->
+      <div class="tickets-grid" id="tickets-container"
+        style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 1.5rem;">
+        <!-- Card 1: CC-2026-1191 -->
+
+
+        <!-- Card 2: CC-2026-1039 -->
+        <div class="ticket-card" id="card-CC-2026-1039">
+          <div>
+            <div class="ticket-header"
+              style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span class="ticket-code">CC-2026-1039</span>
+              <span class="ticket-status status-COMPLETED">COMPLETED</span>
+            </div>
+            <div class="ticket-meta"
+              style="font-family: var(--font-mono); font-size: 0.72rem; color: #666; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;">
+              <span class="">📍 C-Block Corridor</span>
+              <span class="">•</span>
+              <span class="">🏛️ Hostel Office</span>
+              <span class="">•</span>
+              <span class="">⏱️ 3d ago</span>
+            </div>
+            <p class="ticket-desc"
+              style="font-size: 0.92rem; line-height: 1.5; margin-bottom: 1rem; color: rgb(34, 34, 34);">A supply pipe
+              burst near the C-block stairwell and water has been spreading across the corridor since morning. Floor is
+              slippery and students are tracking water into rooms.</p>
+            <img
+              src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&amp;auto=format&amp;fit=crop&amp;q=80"
+              alt="Flooded corridor" class="ticket-photo"
+              onclick="openLightbox('https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&amp;auto=format&amp;fit=crop&amp;q=80', 'CC-2026-1039 · C-Block Corridor')">
+            <div class="admin-note-box"
+              style="background: var(--gum-green-soft); border: 2px solid var(--gum-black); border-radius: 4px; padding: 0.75rem; margin-bottom: 1rem; font-size: 0.8rem;">
+              <b
+                style="font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; display: block; margin-bottom: 0.2rem;">✓
+                OFFICIAL WARDEN RESOLUTION NOTE:</b>
+              <span class="">Plumbing team replaced the burst valve and sealed the joint. Corridor mopped and verified
+                dry by warden at 6:40 PM.</span>
+            </div>
+          </div>
+          <div class="ticket-footer"
+            style="display: flex; justify-content: space-between; align-items: center; border-top: 2px dashed #000; padding-top: 0.85rem; margin-top: auto;">
+            <button class="upvote-btn" onclick="toggleUpvote('CC-2026-1039')">
+              <span class="">▲</span> <span id="votes-CC-2026-1039" class="">29</span> UPVOTES
+            </button>
+            <span class="mono-badge" style="background: var(--gum-yellow-soft); font-size: 0.65rem;">SANITATION</span>
+          </div>
+        </div>
+
+        <!-- Card 3: CC-2026-1035 -->
+        <div class="ticket-card" id="card-CC-2026-1035">
+          <div>
+            <div class="ticket-header"
+              style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span class="ticket-code">CC-2026-1035</span>
+              <span class="ticket-status status-COMPLETED">COMPLETED</span>
+            </div>
+            <div class="ticket-meta"
+              style="font-family: var(--font-mono); font-size: 0.72rem; color: #666; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;">
+              <span class="">📍 Workshop Block • Room W-112</span>
+              <span class="">•</span>
+              <span class="">🏛️ Mechanical Engg.</span>
+              <span class="">•</span>
+              <span class="">⏱️ 5d ago</span>
+            </div>
+            <p class="ticket-desc"
+              style="font-size: 0.92rem; line-height: 1.5; margin-bottom: 1rem; color: rgb(34, 34, 34);">Third-row bench
+              in W-112 has a cracked wooden top and a detached metal leg. Students have to stand during the 9 AM
+              mechanics lecture.</p>
+            <img
+              src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&amp;auto=format&amp;fit=crop&amp;q=80"
+              alt="Cracked wooden desk" class="ticket-photo"
+              onclick="openLightbox('https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&amp;auto=format&amp;fit=crop&amp;q=80', 'CC-2026-1035 · Workshop Block · Room W-112')">
+            <div class="admin-note-box"
+              style="background: var(--gum-green-soft); border: 2px solid var(--gum-black); border-radius: 4px; padding: 0.75rem; margin-bottom: 1rem; font-size: 0.8rem;">
+              <b
+                style="font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; display: block; margin-bottom: 0.2rem;">✓
+                OFFICIAL WARDEN RESOLUTION NOTE:</b>
+              <span class="">Carpenter re-welded the iron frame and replaced the top solid oak plank. Cleared for
+                lectures.</span>
+            </div>
+          </div>
+          <div class="ticket-footer"
+            style="display: flex; justify-content: space-between; align-items: center; border-top: 2px dashed #000; padding-top: 0.85rem; margin-top: auto;">
+            <button class="upvote-btn" onclick="toggleUpvote('CC-2026-1035')">
+              <span class="">▲</span> <span id="votes-CC-2026-1035" class="">15</span> UPVOTES
+            </button>
+            <span class="mono-badge" style="background: var(--gum-yellow-soft); font-size: 0.65rem;">CLASSROOM</span>
+          </div>
+        </div>
+
+        <!-- Card 4: CC-2026-1042 -->
+        <div class="ticket-card" id="card-CC-2026-1042">
+          <div>
+            <div class="ticket-header"
+              style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span class="ticket-code">CC-2026-1042</span>
+              <span class="ticket-status status-IN_PROGRESS">IN PROGRESS</span>
+            </div>
+            <div class="ticket-meta"
+              style="font-family: var(--font-mono); font-size: 0.72rem; color: #666; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;">
+              <span class="">📍 Digital Lab #2 • Workstation 7</span>
+              <span class="">•</span>
+              <span class="">🏛️ Computer Science</span>
+              <span class="">•</span>
+              <span class="">⏱️ 2d ago</span>
+            </div>
+            <p class="ticket-desc"
+              style="font-size: 0.92rem; line-height: 1.5; margin-bottom: 1rem; color: rgb(34, 34, 34);">Oscilloscope
+              workstation 7 in Digital Lab #2 does not power on at all — no LED, no fan. Mid-sem practicals start next
+              week.</p>
+            <img
+              src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&amp;auto=format&amp;fit=crop&amp;q=80"
+              alt="Computer workstation" class="ticket-photo"
+              onclick="openLightbox('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&amp;auto=format&amp;fit=crop&amp;q=80', 'CC-2026-1042 · Digital Lab #2')">
+          </div>
+          <div class="ticket-footer"
+            style="display: flex; justify-content: space-between; align-items: center; border-top: 2px dashed #000; padding-top: 0.85rem; margin-top: auto;">
+            <button class="upvote-btn" onclick="toggleUpvote('CC-2026-1042')">
+              <span class="">▲</span> <span id="votes-CC-2026-1042" class="">20</span> UPVOTES
+            </button>
+            <span class="mono-badge"
+              style="background: var(--gum-yellow-soft); font-size: 0.65rem;">LAB_EQUIPMENT</span>
+          </div>
+        </div>
+
+        <!-- Card 5: CC-2026-1048 -->
+        <div class="ticket-card" id="card-CC-2026-1048">
+          <div>
+            <div class="ticket-header"
+              style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span class="ticket-code">CC-2026-1048</span>
+              <span class="ticket-status status-IN_PROGRESS">IN PROGRESS</span>
+            </div>
+            <div class="ticket-meta"
+              style="font-family: var(--font-mono); font-size: 0.72rem; color: #666; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;">
+              <span class="">📍 Academic Block A • Room A-204</span>
+              <span class="">•</span>
+              <span class="">🏛️ Computer Science</span>
+              <span class="">•</span>
+              <span class="">⏱️ 1d ago</span>
+            </div>
+            <p class="ticket-desc"
+              style="font-size: 0.92rem; line-height: 1.5; margin-bottom: 1rem; color: rgb(34, 34, 34);">The ceiling
+              projector mount in A-204 has come loose and the projector hangs at an angle. Risk of it falling on
+              students seated in front rows.</p>
+            <img
+              src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&amp;auto=format&amp;fit=crop&amp;q=80"
+              alt="Ceiling projector" class="ticket-photo"
+              onclick="openLightbox('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&amp;auto=format&amp;fit=crop&amp;q=80', 'CC-2026-1048 · Room A-204')">
+          </div>
+          <div class="ticket-footer"
+            style="display: flex; justify-content: space-between; align-items: center; border-top: 2px dashed #000; padding-top: 0.85rem; margin-top: auto;">
+            <button class="upvote-btn" onclick="toggleUpvote('CC-2026-1048')">
+              <span class="">▲</span> <span id="votes-CC-2026-1048" class="">14</span> UPVOTES
+            </button>
+            <span class="mono-badge" style="background: var(--gum-yellow-soft); font-size: 0.65rem;">CLASSROOM</span>
+          </div>
+        </div>
+
+        <!-- Card 6: CC-2026-1051 -->
+        <div class="ticket-card" id="card-CC-2026-1051">
+          <div>
+            <div class="ticket-header"
+              style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span class="ticket-code">CC-2026-1051</span>
+              <span class="ticket-status status-SUBMITTED">SUBMITTED</span>
+            </div>
+            <div class="ticket-meta"
+              style="font-family: var(--font-mono); font-size: 0.72rem; color: #666; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;">
+              <span class="">📍 Hostel B • 2nd Floor Pantry</span>
+              <span class="">•</span>
+              <span class="">🏛️ Hostel Office</span>
+              <span class="">•</span>
+              <span class="">⏱️ 9h ago</span>
+            </div>
+            <p class="ticket-desc"
+              style="font-size: 0.92rem; line-height: 1.5; margin-bottom: 1rem; color: rgb(34, 34, 34);">The drinking
+              water cooler on the second floor is leaking from the tap connection and pooling water around the pantry
+              entrance.</p>
+            <img
+              src="https://images.unsplash.com/photo-1527061011665-3652c757a4d4?w=800&amp;auto=format&amp;fit=crop&amp;q=80"
+              alt="Drinking water cooler" class="ticket-photo"
+              onclick="openLightbox('https://images.unsplash.com/photo-1527061011665-3652c757a4d4?w=800&amp;auto=format&amp;fit=crop&amp;q=80', 'CC-2026-1051 · Hostel B')">
+          </div>
+          <div class="ticket-footer"
+            style="display: flex; justify-content: space-between; align-items: center; border-top: 2px dashed #000; padding-top: 0.85rem; margin-top: auto;">
+            <button class="upvote-btn" onclick="toggleUpvote('CC-2026-1051')">
+              <span class="">▲</span> <span id="votes-CC-2026-1051" class="">15</span> UPVOTES
+            </button>
+            <span class="mono-badge" style="background: var(--gum-yellow-soft); font-size: 0.65rem;">HOSTEL</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Section 5: Photo Evidence Gallery -->
-  <section class="section-wrap" id="gallery" style="background: var(--gum-cream); border-top: 2px solid var(--gum-black);">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow">PHOTO EVIDENCE ARCHIVE</span>
-        <h2 class="section-title">Campus Sighting Gallery</h2>
-        <p class="section-sub">Click any photo to zoom in on original student evidence submissions.</p>
-      </div>
 
-      <div class="gallery-grid" id="gallery-container">
-        <!-- Rendered dynamically -->
-      </div>
-    </div>
-  </section>
 
   <!-- Section 6: Terminal Platform Spec -->
-  <section class="section-wrap" id="specs" style="background: var(--gum-paper); border-top: 2px solid var(--gum-black); border-bottom: 2px solid var(--gum-black);">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow">SYSTEM ARCHITECTURE</span>
-        <h2 class="section-title">Platform Specifications</h2>
-        <p class="section-sub">Engine specs and operational parameters governing the CampusConnect grievance network.</p>
-      </div>
+  <section class="section-wrap" id="specs"
+    style="background: var(--gum-paper); border-top: 2px solid var(--gum-black); border-bottom: 2px solid var(--gum-black);">
 
-      <div class="terminal-window">
-        <div class="terminal-header">
-          <div class="terminal-dots">
-            <span class="terminal-dot" style="background: #ff5f56;"></span>
-            <span class="terminal-dot" style="background: #ffbd2e;"></span>
-            <span class="terminal-dot" style="background: #27c93f;"></span>
-          </div>
-          <div>campusconnect://platform-spec · UTF-8</div>
-          <div class="mono-badge" style="background: var(--gum-green); font-size: 0.65rem; border: 1px solid #000;">OPERATIONAL</div>
-        </div>
-        <div class="terminal-body">
-          <div class="terminal-row">
-            <span class="terminal-key">ARCHITECTURE:</span>
-            <span class="terminal-val">Single-File Pure HTML5 + Vanilla JS + Neo-Brutalist CSS</span>
-          </div>
-          <div class="terminal-row">
-            <span class="terminal-key">STORAGE ENGINE:</span>
-            <span class="terminal-val">Client LocalStorage Persistence (Auto-reloads without server dependencies)</span>
-          </div>
-          <div class="terminal-row">
-            <span class="terminal-key">RESOLUTION SLA:</span>
-            <span class="terminal-val">Standard 24h / Emergency Escalation &lt; 4h</span>
-          </div>
-          <div class="terminal-row">
-            <span class="terminal-key">IMAGE PROCESSING:</span>
-            <span class="terminal-val">In-Browser HTML5 Canvas Compression (JPEG q=0.78, 1280px max)</span>
-          </div>
-          <div class="terminal-row">
-            <span class="terminal-key">ADMIN PROTOCOL:</span>
-            <span class="terminal-val">Role-Protected Warden Console (Pass: warden2026)</span>
-          </div>
-          <div class="terminal-row">
-            <span class="terminal-key">REALTIME TICKER:</span>
-            <span class="terminal-val">Simulated Broadcast Loop (Event Dispatch Frequency: 45s)</span>
-          </div>
-          <div class="terminal-row">
-            <span class="terminal-key">UPTIME RECORD:</span>
-            <span class="terminal-val" style="color: var(--gum-green);">99.98% Across Academic Term 2026</span>
-          </div>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- Section 7: Admin Console / Warden Portal -->
   <section class="section-wrap" id="admin-portal" style="background: var(--gum-cream);">
     <div class="container">
       <div class="section-header">
-        <span class="section-eyebrow">WARDEN & FACULTY CONSOLE</span>
+        <span class="section-eyebrow">WARDEN &amp; FACULTY CONSOLE</span>
         <h2 class="section-title">Admin Management Portal</h2>
-        <p class="section-sub">Update ticket lifecycle statuses, add official resolution notes, post urgent campus bulletins, and export data.</p>
+        <p class="section-sub">Update ticket lifecycle statuses, add official resolution notes, post urgent campus
+          bulletins, and export data.</p>
       </div>
 
       <!-- Login Gate (shown if not logged in) -->
       <div id="admin-login-card" class="form-card" style="max-width: 540px; margin: 0 auto;">
-        <h3 style="font-size: 1.35rem; font-weight: 900; margin-bottom: 0.5rem;">🔒 Warden Login</h3>
-        <p style="font-size: 0.85rem; color: #555; margin-bottom: 1.25rem;">
-          Enter the warden access password to manage complaints and post notices. (Default: <code style="background: var(--gum-yellow); padding: 0.1rem 0.3rem; border: 1px solid #000; font-weight: bold;">warden2026</code>)
-        </p>
+        <h3 style="font-size: 1.35rem; font-weight: 900; margin-bottom: 0.5rem;" class="">🔒 Admin Login</h3>
+        <p style="font-size: 0.85rem; color: rgb(85, 85, 85); margin-bottom: 1.25rem;" class="">
+          Enter the warden access password to manage complaints and post notices.&nbsp;</p>
 
         <form onsubmit="handleAdminLogin(event)">
           <div class="form-group" style="margin-bottom: 1rem;">
-            <label for="admin-pass">Access Password</label>
-            <input type="password" id="admin-pass" placeholder="Enter warden password..." value="warden2026" required />
+            <label for="admin-pass" class="">Access Password</label>
+            <input type="password" id="admin-pass" placeholder="Enter warden password..." value="" required="">
           </div>
 
           <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-            <button type="submit" class="brut-btn brut-btn-pink" style="flex: 1;">LOGIN AS WARDEN</button>
-            <button type="button" class="brut-btn brut-btn-yellow" onclick="quickDemoLogin()">⚡ 1-CLICK DEMO LOGIN</button>
+            <button type="submit" class="brut-btn brut-btn-pink" style="flex: 1 1 0%;">LOGIN AS admin</button>
+
           </div>
         </form>
       </div>
 
       <!-- Authenticated Admin Console (hidden initially) -->
       <div id="admin-dashboard-view" class="admin-console-box" style="display: none;">
-        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 2px solid var(--gum-black); padding-bottom: 1rem;">
+        <div
+          style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 2px solid var(--gum-black); padding-bottom: 1rem;">
           <div>
             <div class="mono-badge" style="background: var(--gum-green);">AUTHENTICATED AS CHIEF WARDEN</div>
-            <h3 style="font-size: 1.5rem; font-weight: 900; margin-top: 0.35rem;">Campus Grievance Dispatch Console</h3>
+            <h3 style="font-size: 1.5rem; font-weight: 900; margin-top: 0.35rem;" class="">Campus Grievance Dispatch
+              Console</h3>
           </div>
           <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
             <button class="brut-btn brut-btn-sm brut-btn-yellow" onclick="showNewNoticeModal()">+ POST NOTICE</button>
@@ -1852,12 +1995,12 @@
           <table class="admin-table">
             <thead>
               <tr>
-                <th>Ticket</th>
-                <th>Dept / Room</th>
-                <th>Category</th>
-                <th>Status</th>
-                <th>Upvotes</th>
-                <th>Resolution Action</th>
+                <th class="">Ticket</th>
+                <th class="">Dept / Room</th>
+                <th class="">Category</th>
+                <th class="">Status</th>
+                <th class="">Upvotes</th>
+                <th class="">Resolution Action</th>
               </tr>
             </thead>
             <tbody id="admin-table-body">
@@ -1873,9 +2016,13 @@
   <div class="modal-overlay" id="lightbox-modal" onclick="closeLightbox(event)">
     <div class="modal-content" style="max-width: 700px; text-align: center;">
       <button class="modal-close" onclick="closeLightbox()">✕</button>
-      <h3 id="modal-photo-title" style="font-size: 1.25rem; font-weight: 900; margin-bottom: 1rem; text-align: left;">Evidence Sighting</h3>
-      <img id="modal-photo-img" src="" alt="Enlarged evidence" style="width: 100%; max-height: 500px; object-fit: contain; border: 2px solid var(--gum-black); border-radius: 4px; background: #fff;" />
-      <p id="modal-photo-caption" style="margin-top: 0.75rem; font-size: 0.9rem; text-align: left; color: #444;"></p>
+      <h3 id="modal-photo-title" style="font-size: 1.25rem; font-weight: 900; margin-bottom: 1rem; text-align: left;"
+        class="">Evidence Sighting</h3>
+      <img id="modal-photo-img" src="" alt="Enlarged evidence"
+        style="width: 100%; max-height: 500px; object-fit: contain; border: 2px solid var(--gum-black); border-radius: 4px; background: rgb(255, 255, 255);"
+        class="">
+      <p id="modal-photo-caption"
+        style="margin-top: 0.75rem; font-size: 0.9rem; text-align: left; color: rgb(68, 68, 68);" class=""></p>
     </div>
   </div>
 
@@ -1884,7 +2031,7 @@
     <div class="modal-content">
       <button class="modal-close" onclick="closeNoticesModal()">✕</button>
       <div class="mono-badge" style="background: var(--gum-yellow); margin-bottom: 0.5rem;">CAMPUS BULLETIN</div>
-      <h3 style="font-size: 1.5rem; font-weight: 900; margin-bottom: 1rem;">All Active Campus Notices</h3>
+      <h3 style="font-size: 1.5rem; font-weight: 900; margin-bottom: 1rem;" class="">All Active Campus Notices</h3>
       <div id="all-notices-list" style="display: flex; flex-direction: column; gap: 1rem;">
         <!-- Rendered by JS -->
       </div>
@@ -1895,15 +2042,16 @@
   <div class="modal-overlay" id="new-notice-modal" onclick="closeNewNoticeModal(event)">
     <div class="modal-content">
       <button class="modal-close" onclick="closeNewNoticeModal()">✕</button>
-      <h3 style="font-size: 1.35rem; font-weight: 900; margin-bottom: 1rem;">📢 Post New Campus Notice</h3>
+      <h3 style="font-size: 1.35rem; font-weight: 900; margin-bottom: 1rem;" class="">📢 Post New Campus Notice</h3>
       <form onsubmit="handlePostNotice(event)">
         <div class="form-group" style="margin-bottom: 1rem;">
-          <label for="notice-title-input">Notice Headline *</label>
-          <input type="text" id="notice-title-input" placeholder="e.g. Scheduled Water Maintenance in B-Block" required />
+          <label for="notice-title-input" class="">Notice Headline *</label>
+          <input type="text" id="notice-title-input" placeholder="e.g. Scheduled Water Maintenance in B-Block"
+            required="">
         </div>
         <div class="form-group" style="margin-bottom: 1rem;">
-          <label for="notice-cat-input">Notice Category *</label>
-          <select id="notice-cat-input" required>
+          <label for="notice-cat-input" class="">Notice Category *</label>
+          <select id="notice-cat-input" required="">
             <option value="EXAM">Examination</option>
             <option value="ACADEMIC">Academic</option>
             <option value="EVENT">Event</option>
@@ -1911,8 +2059,9 @@
           </select>
         </div>
         <div class="form-group" style="margin-bottom: 1.25rem;">
-          <label for="notice-body-input">Notice Content *</label>
-          <textarea id="notice-body-input" rows="3" placeholder="Provide full details, timings, and contact personnel..." required></textarea>
+          <label for="notice-body-input" class="">Notice Content *</label>
+          <textarea id="notice-body-input" rows="3"
+            placeholder="Provide full details, timings, and contact personnel..." required=""></textarea>
         </div>
         <button type="submit" class="brut-btn brut-btn-yellow" style="width: 100%;">BROADCAST NOTICE</button>
       </form>
@@ -1920,52 +2069,55 @@
   </div>
 
   <!-- Toast Element -->
-  <div id="toast">
-    <span id="toast-icon">⚡</span>
-    <span id="toast-msg">Ticket registered successfully!</span>
+  <div id="toast" class="">
+    <span id="toast-icon" class="">🔔</span>
+    <span id="toast-msg" class="">Subscribed to Ticket #CC-2026-1048 live updates</span>
   </div>
 
   <!-- Footer -->
   <footer>
     <div class="container footer-grid">
       <div>
-        <div class="footer-title">CAMPUSCONNECT 2.0</div>
+        <div class="footer-title">CAMPUSCONNECT&nbsp;</div>
         <p class="footer-desc">
-          An open, student-first grievance redressal framework and campus dispatch ledger. Built to eliminate administrative bottlenecks with transparent resolution tracking.
+          An open, student-first grievance redressal framework and campus dispatch ledger. Built to eliminate
+          administrative bottlenecks with transparent resolution tracking.
         </p>
         <div style="margin-top: 1.25rem;">
-          <span class="mono-badge" style="background: var(--gum-yellow); color: #000;">SINGLE-FILE EDITION · ZERO DEPENDENCIES</span>
+
         </div>
       </div>
 
       <div>
         <div class="footer-links-title">Quick Navigation</div>
         <ul class="footer-list">
-          <li><a href="#top" class="footer-link">Top of Page</a></li>
-          <li><a href="#notice-board" class="footer-link">Campus Notices</a></li>
-          <li><a href="#pipeline" class="footer-link">5-Step Pipeline</a></li>
-          <li><a href="#file-grievance" class="footer-link">File a Ticket</a></li>
-          <li><a href="#live-feed" class="footer-link">Live Grievance Queue</a></li>
-          <li><a href="#specs" class="footer-link">Platform Specifications</a></li>
+          <li class=""><a href="#top" class="footer-link">Top of Page</a></li>
+          <li class=""><a href="#notice-board" class="footer-link">Campus Notices</a></li>
+          <li class=""><a href="#pipeline" class="footer-link">5-Step Pipeline</a></li>
+          <li class=""><a href="#file-grievance" class="footer-link">File a Ticket</a></li>
+          <li class=""><a href="#live-feed" class="footer-link">Live Grievance Queue</a></li>
+          <li class=""><a href="#specs" class="footer-link">Platform Specifications</a></li>
         </ul>
       </div>
 
       <div>
         <div class="footer-links-title">Emergency Contacts</div>
         <ul class="footer-list">
-          <li class="mono-text" style="font-size: 0.85rem; color: #fff;">Chief Warden: +91 98765-43210</li>
-          <li class="mono-text" style="font-size: 0.85rem; color: #fff;">Campus IT Helpdesk: Ext. 404</li>
-          <li class="mono-text" style="font-size: 0.85rem; color: #fff;">Hostel Security: Ext. 100</li>
-          <li class="mono-text" style="font-size: 0.85rem; color: #fff;">Medical Health Center: Ext. 108</li>
+          <li class="mono-text" style="font-size: 0.85rem; color: rgb(255, 255, 255);">Chief Warden: +91 98765-43210
+          </li>
+          <li class="mono-text" style="font-size: 0.85rem; color: rgb(255, 255, 255);">Campus IT Helpdesk: Ext. 404</li>
+          <li class="mono-text" style="font-size: 0.85rem; color: rgb(255, 255, 255);">Hostel Security: Ext. 100</li>
+          <li class="mono-text" style="font-size: 0.85rem; color: rgb(255, 255, 255);">Medical Health Center: Ext. 108
+          </li>
         </ul>
       </div>
     </div>
 
     <div class="container footer-bottom">
-      <div>&copy; 2026 CampusConnect. Free & Open-Source Student Infrastructure.</div>
+      <div class="">© 2026 CampusConnect. Free &amp; Open-Source Student Infrastructure.</div>
       <div style="display: flex; align-items: center; gap: 0.5rem;">
         <span class="pulse-dot"></span>
-        <span>NETWORK STATUS: 100% OPERATIONAL</span>
+
       </div>
     </div>
   </footer>
@@ -1982,7 +2134,7 @@
         category: "SANITATION",
         location: "C-Block Corridor",
         description: "A supply pipe burst near the C-block stairwell and water has been spreading across the corridor since morning. Floor is slippery and students are tracking water into rooms.",
-        image: "public/demo/water-leak.png",
+        image: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&auto=format&fit=crop&q=80",
         status: "COMPLETED",
         adminNote: "Plumbing team replaced the burst valve and sealed the joint. Corridor mopped and verified dry by warden at 6:40 PM.",
         upvotes: 24,
@@ -1995,7 +2147,7 @@
         category: "CLASSROOM",
         location: "Workshop Block · Room W-112",
         description: "Third-row bench in W-112 has a cracked wooden top and a detached metal leg. Students have to stand during the 9 AM mechanics lecture.",
-        image: "public/demo/bench.png",
+        image: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&auto=format&fit=crop&q=80",
         status: "COMPLETED",
         adminNote: "Carpenter re-welded the iron frame and replaced the top solid oak plank. Cleared for lectures.",
         upvotes: 11,
@@ -2007,8 +2159,8 @@
         department: "Computer Science",
         category: "LAB_EQUIPMENT",
         location: "Digital Lab #2 · Workstation 7",
-        description: "Oscilloscope workstation 7 in Digital Lab #2 does not power on at all — no LED, no fan. Mid-sem practicals start next week.",
-        image: "public/demo/lab-pc.png",
+        description: "Workstation 7 in Digital Lab #2 does not power on at all — no LED, no fan. Mid-sem practicals start next week.",
+        image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&auto=format&fit=crop&q=80",
         status: "IN_PROGRESS",
         adminNote: null,
         upvotes: 16,
@@ -2021,7 +2173,7 @@
         category: "CLASSROOM",
         location: "Academic Block A · Room A-204",
         description: "The ceiling projector mount in A-204 has come loose and the projector hangs at an angle. Risk of it falling on students seated in front rows.",
-        image: "public/demo/projector.png",
+        image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&auto=format&fit=crop&q=80",
         status: "IN_PROGRESS",
         adminNote: null,
         upvotes: 8,
@@ -2034,7 +2186,7 @@
         category: "HOSTEL",
         location: "Hostel B · 2nd Floor Pantry",
         description: "The drinking water cooler on the second floor is leaking from the tap connection and pooling water around the pantry entrance.",
-        image: "public/demo/cooler.png",
+        image: "https://images.unsplash.com/photo-1527061011665-3652c757a4d4?w=800&auto=format&fit=crop&q=80",
         status: "SUBMITTED",
         adminNote: null,
         upvotes: 7,
@@ -2127,7 +2279,7 @@
     function loadState() {
       const storedComplaints = localStorage.getItem('cc_complaints_v2');
       if (storedComplaints) {
-        try { complaints = JSON.parse(storedComplaints); } catch(e) { complaints = DEFAULT_COMPLAINTS; }
+        try { complaints = JSON.parse(storedComplaints); } catch (e) { complaints = DEFAULT_COMPLAINTS; }
       } else {
         complaints = JSON.parse(JSON.stringify(DEFAULT_COMPLAINTS));
         saveComplaints();
@@ -2135,7 +2287,7 @@
 
       const storedNotices = localStorage.getItem('cc_notices_v2');
       if (storedNotices) {
-        try { notices = JSON.parse(storedNotices); } catch(e) { notices = DEFAULT_NOTICES; }
+        try { notices = JSON.parse(storedNotices); } catch (e) { notices = DEFAULT_NOTICES; }
       } else {
         notices = JSON.parse(JSON.stringify(DEFAULT_NOTICES));
         saveNotices();
@@ -2143,7 +2295,7 @@
 
       const storedVotes = localStorage.getItem('cc_user_votes_v2');
       if (storedVotes) {
-        try { votedTickets = new Set(JSON.parse(storedVotes)); } catch(e) {}
+        try { votedTickets = new Set(JSON.parse(storedVotes)); } catch (e) { }
       }
 
       if (sessionStorage.getItem('cc_admin_session') === 'active') {
@@ -2243,7 +2395,6 @@
 
     /* --- TECHFEST COUNTDOWN --- */
     function updateCountdown() {
-      // TechFest Target: Dec 7, 2026
       const target = new Date("2026-12-07T00:00:00+08:00").getTime();
       const now = Date.now();
       const diff = Math.max(0, target - now);
@@ -2337,7 +2488,7 @@
       }
 
       const reader = new FileReader();
-      reader.onload = function(e) {
+      reader.onload = function (e) {
         compressImageToDataURL(e.target.result, 1280, 0.78, (compressed) => {
           selectedImageBase64 = compressed;
           document.getElementById('preview-img').src = compressed;
@@ -2351,7 +2502,7 @@
 
     function compressImageToDataURL(src, maxDim, quality, callback) {
       const img = new Image();
-      img.onload = function() {
+      img.onload = function () {
         const scale = Math.min(1, maxDim / Math.max(img.width, img.height));
         const canvas = document.createElement('canvas');
         canvas.width = Math.round(img.width * scale);
@@ -2363,11 +2514,19 @@
       img.src = src;
     }
 
+    const DEMO_PRESET_IMAGES = {
+      'water-leak': 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&auto=format&fit=crop&q=80',
+      'bench': 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&auto=format&fit=crop&q=80',
+      'lab-pc': 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&auto=format&fit=crop&q=80',
+      'projector': 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&auto=format&fit=crop&q=80',
+      'cooler': 'https://images.unsplash.com/photo-1527061011665-3652c757a4d4?w=800&auto=format&fit=crop&q=80'
+    };
+
     function setPresetPhoto(type) {
-      const path = `public/demo/${type}.png`;
-      selectedImageBase64 = path;
-      document.getElementById('preview-img').src = path;
-      document.getElementById('preview-filename').textContent = `demo-${type}.png`;
+      const url = DEMO_PRESET_IMAGES[type] || 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&auto=format&fit=crop&q=80';
+      selectedImageBase64 = url;
+      document.getElementById('preview-img').src = url;
+      document.getElementById('preview-filename').textContent = `demo-${type}.jpg`;
       document.getElementById('image-preview-container').style.display = 'flex';
       showToast(`Selected demo photo: ${type}`, '🖼️');
     }
@@ -2407,11 +2566,9 @@
         resolvedAt: null
       };
 
-      // Add to front of complaints list
       complaints.unshift(newTicket);
       saveComplaints();
 
-      // Reset form
       document.getElementById('grievance-form').reset();
       clearSelectedImage();
       document.getElementById('selected-category').value = 'SANITATION';
@@ -2420,7 +2577,6 @@
         else p.classList.remove('active');
       });
 
-      // Update UI
       renderTickets();
       renderStats();
       renderGallery();
@@ -2428,7 +2584,6 @@
 
       showToast(`Ticket ${newTicket.ticket} published to live feed!`, '🎉');
 
-      // Scroll smoothly to the live feed to see it
       setTimeout(() => {
         document.getElementById('live-feed').scrollIntoView({ behavior: 'smooth' });
       }, 300);
@@ -2460,7 +2615,7 @@
       const filtered = complaints.filter(c => {
         const matchesStatus = (currentStatusFilter === 'ALL' || c.status === currentStatusFilter);
         const matchesCat = (currentCategoryFilter === 'ALL' || c.category === currentCategoryFilter);
-        const matchesSearch = !searchQuery || 
+        const matchesSearch = !searchQuery ||
           c.ticket.toLowerCase().includes(searchQuery) ||
           c.location.toLowerCase().includes(searchQuery) ||
           c.department.toLowerCase().includes(searchQuery) ||
@@ -2555,7 +2710,7 @@
 
       container.innerHTML = withPhotos.map(c => `
         <div class="gallery-card" onclick="openLightbox('${c.image}', '${c.ticket} · ${c.location}')">
-          <img src="${c.image}" alt="${c.ticket}" class="gallery-img" onerror="this.src='https://placehold.co/400x300/ff90e8/000?text=Campus+Evidence'" />
+          <img src="${c.image}" alt="${c.ticket}" class="gallery-img" onerror="this.src='https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&auto=format&fit=crop&q=80'" />
           <div class="gallery-info">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
               <span class="mono-badge" style="font-size: 0.65rem;">${c.ticket}</span>
@@ -2616,9 +2771,8 @@
       showToast(`⚡ Live Socket Event: New Ticket ${ticket.ticket} dispatched!`, '🔔');
     }
 
-    /* Auto-simulate periodic activity every 50 seconds */
+    /* Auto-simulate periodic activity */
     setInterval(() => {
-      // randomly increment an upvote or log
       if (complaints.length > 0 && Math.random() > 0.4) {
         const randomIdx = Math.floor(Math.random() * complaints.length);
         complaints[randomIdx].upvotes += 1;
@@ -2810,7 +2964,7 @@
       const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(complaints, null, 2));
       const downloadAnchor = document.createElement('a');
       downloadAnchor.setAttribute("href", dataStr);
-      downloadAnchor.setAttribute("download", `campusconnect_export_${new Date().toISOString().slice(0,10)}.json`);
+      downloadAnchor.setAttribute("download", `campusconnect_export_${new Date().toISOString().slice(0, 10)}.json`);
       document.body.appendChild(downloadAnchor);
       downloadAnchor.click();
       downloadAnchor.remove();
