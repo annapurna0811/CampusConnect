@@ -17,10 +17,10 @@
 
   <style>
     /* ==========================================================================
-       CAMPUSCONNECT — GUMROAD NEO-BRUTALIST DESIGN SYSTEM
-       Cream #f4f4f0 · Pink #ff90e8 · Yellow #ffc900 · Mint #8ff0b4 · Pure Black #000
-       Hard 2px borders, 4px radius, 4px/6px solid drop shadows, no blur, 48px grid.
-       ========================================================================== */
+        CAMPUSCONNECT — GUMROAD NEO-BRUTALIST DESIGN SYSTEM
+        Cream #f4f4f0 · Pink #ff90e8 · Yellow #ffc900 · Mint #8ff0b4 · Pure Black #000
+        Hard 2px borders, 4px radius, 4px/6px solid drop shadows, no blur, 48px grid.
+        ========================================================================== */
     :root {
       --gum-cream: #f4f4f0;
       --gum-pink: #ff90e8;
@@ -2123,8 +2123,8 @@
   </footer>
 
   <!-- ==========================================================================
-       JAVASCRIPT APPLICATION ENGINE (Single-file, Zero dependencies)
-       ========================================================================== -->
+        JAVASCRIPT APPLICATION ENGINE (Single-file, Zero dependencies)
+        ========================================================================== -->
   <script>
     /* --- INITIAL SEED DATA --- */
     const DEFAULT_COMPLAINTS = [
@@ -2437,15 +2437,15 @@
     function showAllNoticesModal() {
       const container = document.getElementById('all-notices-list');
       container.innerHTML = notices.map(n => `
-        <div style="background: var(--gum-cream); border: 2px solid var(--gum-black); border-radius: 4px; padding: 1rem;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-            <span class="mono-badge" style="background: var(--gum-yellow);">${n.category}</span>
-            <span class="mono-text" style="font-size: 0.72rem; color: #666;">${formatTimeAgo(n.createdAt)}</span>
+          <div style="background: var(--gum-cream); border: 2px solid var(--gum-black); border-radius: 4px; padding: 1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <span class="mono-badge" style="background: var(--gum-yellow);">${n.category}</span>
+              <span class="mono-text" style="font-size: 0.72rem; color: #666;">${formatTimeAgo(n.createdAt)}</span>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.35rem;">${n.title}</h4>
+            <p style="font-size: 0.88rem; color: #333;">${n.body}</p>
           </div>
-          <h4 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.35rem;">${n.title}</h4>
-          <p style="font-size: 0.88rem; color: #333;">${n.body}</p>
-        </div>
-      `).join('');
+        `).join('');
       document.getElementById('notices-modal').classList.add('active');
     }
 
@@ -2625,56 +2625,56 @@
 
       if (!filtered.length) {
         container.innerHTML = `
-          <div style="grid-column: 1 / -1; background: var(--gum-paper); border: 2px solid var(--gum-black); border-radius: 4px; padding: 3rem; text-align: center;">
-            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔍</div>
-            <h3 style="font-size: 1.3rem; font-weight: 800;">No matching grievances found</h3>
-            <p style="color: #666; font-size: 0.9rem; margin-top: 0.25rem;">Try adjusting your filters or search keywords.</p>
-          </div>
-        `;
+            <div style="grid-column: 1 / -1; background: var(--gum-paper); border: 2px solid var(--gum-black); border-radius: 4px; padding: 3rem; text-align: center;">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔍</div>
+              <h3 style="font-size: 1.3rem; font-weight: 800;">No matching grievances found</h3>
+              <p style="color: #666; font-size: 0.9rem; margin-top: 0.25rem;">Try adjusting your filters or search keywords.</p>
+            </div>
+          `;
         return;
       }
 
       container.innerHTML = filtered.map(c => {
         const hasVoted = votedTickets.has(c.ticket);
         const photoHtml = c.image ? `
-          <img src="${c.image}" alt="Evidence" class="ticket-photo" onclick="openLightbox('${c.image}', '${c.ticket} · ${c.location}')" onerror="this.style.display='none'" />
-        ` : '';
+            <img src="${c.image}" alt="Evidence" class="ticket-photo" onclick="openLightbox('${c.image}', '${c.ticket} · ${c.location}')" onerror="this.style.display='none'" />
+          ` : '';
 
         const adminHtml = c.adminNote ? `
-          <div class="admin-note-box">
-            <b>✓ Official Warden Resolution Note:</b>
-            <span>${c.adminNote}</span>
-          </div>
-        ` : '';
+            <div class="admin-note-box">
+              <b>✓ Official Warden Resolution Note:</b>
+              <span>${c.adminNote}</span>
+            </div>
+          ` : '';
 
         return `
-          <div class="ticket-card" id="card-${c.ticket}">
-            <div>
-              <div class="ticket-header">
-                <span class="ticket-code">${c.ticket}</span>
-                <span class="ticket-status status-${c.status}">${c.status.replace('_', ' ')}</span>
+            <div class="ticket-card" id="card-${c.ticket}">
+              <div>
+                <div class="ticket-header">
+                  <span class="ticket-code">${c.ticket}</span>
+                  <span class="ticket-status status-${c.status}">${c.status.replace('_', ' ')}</span>
+                </div>
+                <div class="ticket-meta">
+                  <span>📍 ${c.location}</span>
+                  <span>•</span>
+                  <span>🏛️ ${c.department}</span>
+                  <span>•</span>
+                  <span>⏱️ ${formatTimeAgo(c.createdAt)}</span>
+                </div>
+                <p class="ticket-desc">${c.description}</p>
+                ${photoHtml}
+                ${adminHtml}
               </div>
-              <div class="ticket-meta">
-                <span>📍 ${c.location}</span>
-                <span>•</span>
-                <span>🏛️ ${c.department}</span>
-                <span>•</span>
-                <span>⏱️ ${formatTimeAgo(c.createdAt)}</span>
+              <div class="ticket-footer">
+                <button class="upvote-btn ${hasVoted ? 'voted' : ''}" onclick="toggleUpvote('${c.ticket}')">
+                  <span>▲</span> <span id="votes-${c.ticket}">${c.upvotes}</span> UPVOTES
+                </button>
+                <span class="mono-badge" style="background: var(--gum-yellow-soft); font-size: 0.65rem;">
+                  ${c.category}
+                </span>
               </div>
-              <p class="ticket-desc">${c.description}</p>
-              ${photoHtml}
-              ${adminHtml}
             </div>
-            <div class="ticket-footer">
-              <button class="upvote-btn ${hasVoted ? 'voted' : ''}" onclick="toggleUpvote('${c.ticket}')">
-                <span>▲</span> <span id="votes-${c.ticket}">${c.upvotes}</span> UPVOTES
-              </button>
-              <span class="mono-badge" style="background: var(--gum-yellow-soft); font-size: 0.65rem;">
-                ${c.category}
-              </span>
-            </div>
-          </div>
-        `;
+          `;
       }).join('');
     }
 
@@ -2709,19 +2709,19 @@
       }
 
       container.innerHTML = withPhotos.map(c => `
-        <div class="gallery-card" onclick="openLightbox('${c.image}', '${c.ticket} · ${c.location}')">
-          <img src="${c.image}" alt="${c.ticket}" class="gallery-img" onerror="this.src='https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&auto=format&fit=crop&q=80'" />
-          <div class="gallery-info">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
-              <span class="mono-badge" style="font-size: 0.65rem;">${c.ticket}</span>
-              <span class="mono-text" style="font-size: 0.68rem; color: #666;">${c.category}</span>
-            </div>
-            <div style="font-weight: 700; font-size: 0.85rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-              ${c.location}
+          <div class="gallery-card" onclick="openLightbox('${c.image}', '${c.ticket} · ${c.location}')">
+            <img src="${c.image}" alt="${c.ticket}" class="gallery-img" onerror="this.src='https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&auto=format&fit=crop&q=80'" />
+            <div class="gallery-info">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+                <span class="mono-badge" style="font-size: 0.65rem;">${c.ticket}</span>
+                <span class="mono-text" style="font-size: 0.68rem; color: #666;">${c.category}</span>
+              </div>
+              <div style="font-weight: 700; font-size: 0.85rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                ${c.location}
+              </div>
             </div>
           </div>
-        </div>
-      `).join('');
+        `).join('');
     }
 
     /* --- LIGHTBOX MODAL --- */
@@ -2849,34 +2849,34 @@
     function renderAdminTable() {
       const tbody = document.getElementById('admin-table-body');
       tbody.innerHTML = complaints.map(c => `
-        <tr>
-          <td>
-            <b>${c.ticket}</b><br/>
-            <span class="mono-text" style="font-size: 0.7rem; color: #666;">${formatTimeAgo(c.createdAt)}</span>
-          </td>
-          <td>
-            <b>${c.location}</b><br/>
-            <span style="font-size: 0.75rem;">${c.department}</span>
-          </td>
-          <td><span class="mono-badge" style="font-size: 0.65rem;">${c.category}</span></td>
-          <td>
-            <select onchange="updateTicketStatus('${c.ticket}', this.value)" style="padding: 0.25rem 0.5rem; font-size: 0.8rem; font-weight: bold; background: var(--gum-paper);">
-              <option value="SUBMITTED" ${c.status === 'SUBMITTED' ? 'selected' : ''}>SUBMITTED</option>
-              <option value="IN_PROGRESS" ${c.status === 'IN_PROGRESS' ? 'selected' : ''}>IN PROGRESS</option>
-              <option value="COMPLETED" ${c.status === 'COMPLETED' ? 'selected' : ''}>COMPLETED</option>
-            </select>
-          </td>
-          <td>${c.upvotes}</td>
-          <td>
-            <button class="brut-btn brut-btn-sm" onclick="promptAdminNote('${c.ticket}')">
-              ${c.adminNote ? 'EDIT NOTE' : '+ ADD NOTE'}
-            </button>
-            <button class="brut-btn brut-btn-sm brut-btn-pink" onclick="deleteTicket('${c.ticket}')" style="margin-left: 0.35rem;">
-              🗑️
-            </button>
-          </td>
-        </tr>
-      `).join('');
+          <tr>
+            <td>
+              <b>${c.ticket}</b><br/>
+              <span class="mono-text" style="font-size: 0.7rem; color: #666;">${formatTimeAgo(c.createdAt)}</span>
+            </td>
+            <td>
+              <b>${c.location}</b><br/>
+              <span style="font-size: 0.75rem;">${c.department}</span>
+            </td>
+            <td><span class="mono-badge" style="font-size: 0.65rem;">${c.category}</span></td>
+            <td>
+              <select onchange="updateTicketStatus('${c.ticket}', this.value)" style="padding: 0.25rem 0.5rem; font-size: 0.8rem; font-weight: bold; background: var(--gum-paper);">
+                <option value="SUBMITTED" ${c.status === 'SUBMITTED' ? 'selected' : ''}>SUBMITTED</option>
+                <option value="IN_PROGRESS" ${c.status === 'IN_PROGRESS' ? 'selected' : ''}>IN PROGRESS</option>
+                <option value="COMPLETED" ${c.status === 'COMPLETED' ? 'selected' : ''}>COMPLETED</option>
+              </select>
+            </td>
+            <td>${c.upvotes}</td>
+            <td>
+              <button class="brut-btn brut-btn-sm" onclick="promptAdminNote('${c.ticket}')">
+                ${c.adminNote ? 'EDIT NOTE' : '+ ADD NOTE'}
+              </button>
+              <button class="brut-btn brut-btn-sm brut-btn-pink" onclick="deleteTicket('${c.ticket}')" style="margin-left: 0.35rem;">
+                🗑️
+              </button>
+            </td>
+          </tr>
+        `).join('');
     }
 
     function updateTicketStatus(ticketId, newStatus) {
