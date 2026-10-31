@@ -18,13 +18,13 @@
   <style>
     /* ==========================================================================
        CAMPUSCONNECT — GUMROAD NEO-BRUTALIST DESIGN SYSTEM
-       Cream #f4f4f0 · Pink #90d8ff · Yellow #ffc900 · Mint #8ff0b4 · Pure Black #000
+       Cream #f4f4f0 · Pink #ff90e8 · Yellow #ffc900 · Mint #8ff0b4 · Pure Black #000
        Hard 2px borders, 4px radius, 4px/6px solid drop shadows, no blur, 48px grid.
        ========================================================================== */
     :root {
       --gum-cream: #f4f4f0;
-      --gum-pink: #90d8ff;
-      --gum-pink-soft: #d6f0ff;
+      --gum-pink: #ff90e8;
+      --gum-pink-soft: #ffe4fa;
       --gum-yellow: #ffc900;
       --gum-yellow-soft: #ffeb99;
       --gum-blue: #90d8ff;
@@ -130,7 +130,7 @@
     }
 
     .brut-btn-pink:hover {
-      background: #70c4f4;
+      background: #ff75e2;
     }
 
     .brut-btn-yellow {
@@ -322,10 +322,13 @@
     }
 
     @keyframes pulse-ring {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: scale(1);
         opacity: 1;
       }
+
       50% {
         transform: scale(1.35);
         opacity: 0.6;
@@ -449,7 +452,7 @@
       color: #555555;
     }
 
-    /* Hero Right Visual */
+    /* Hero Right Visual: Sticker Collage & TechFest Countdown */
     .hero-card-stack {
       position: relative;
     }
@@ -562,8 +565,13 @@
     }
 
     @keyframes marquee-scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
     }
 
     /* Section Headers */
@@ -699,7 +707,7 @@
       transform: translate(1px, 1px);
     }
 
-    /* Photo Upload Area */
+    /* Photo Upload Box & Demo Preset Picker */
     .photo-upload-area {
       border: 2px dashed var(--gum-black);
       border-radius: 4px;
@@ -713,6 +721,30 @@
 
     .photo-upload-area:hover {
       background: #eeebe3;
+    }
+
+    .preset-photos {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+    }
+
+    .preset-btn {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: #ffffff;
+      border: 2px solid var(--gum-black);
+      border-radius: 4px;
+      padding: 0.3rem 0.6rem;
+      cursor: pointer;
+      box-shadow: 2px 2px 0 var(--gum-black);
+    }
+
+    .preset-btn:hover {
+      background: var(--gum-yellow);
     }
 
     .image-preview-box {
@@ -734,7 +766,166 @@
       border-radius: 4px;
     }
 
+    /* Interactive 5-Step System Pipeline */
+    .pipeline-container {
+      background: var(--gum-paper);
+      border: 2px solid var(--gum-black);
+      border-radius: 4px;
+      padding: 2.5rem 1.5rem;
+      box-shadow: var(--shadow-hard-lg);
+      margin-bottom: 2.5rem;
+    }
+
+    .pipeline-rail {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 2.5rem 0 3.5rem;
+      padding: 0 1rem;
+    }
+
+    .pipeline-line {
+      position: absolute;
+      top: 50%;
+      left: 2rem;
+      right: 2rem;
+      height: 3px;
+      background: var(--gum-black);
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+
+    .pipeline-signal-dot {
+      position: absolute;
+      top: 50%;
+      width: 14px;
+      height: 14px;
+      background: var(--gum-pink);
+      border: 2px solid var(--gum-black);
+      border-radius: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      animation: signal-loop 6s linear infinite;
+    }
+
+    @keyframes signal-loop {
+      0% {
+        left: 2rem;
+      }
+
+      100% {
+        left: calc(100% - 2rem);
+      }
+    }
+
+    .pipeline-node {
+      position: relative;
+      z-index: 3;
+      width: 58px;
+      height: 58px;
+      background: var(--gum-cream);
+      border: 2px solid var(--gum-black);
+      border-radius: 4px;
+      box-shadow: 3px 3px 0 var(--gum-black);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .pipeline-node:hover,
+    .pipeline-node.active {
+      background: var(--gum-yellow);
+      transform: scale(1.12);
+      box-shadow: 5px 5px 0 var(--gum-black);
+    }
+
+    .pipeline-node.active {
+      border-color: var(--gum-black);
+      background: var(--gum-pink);
+    }
+
+    .pipeline-node-lbl {
+      position: absolute;
+      top: 68px;
+      width: 120px;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .pipeline-detail-card {
+      background: var(--gum-cream);
+      border: 2px solid var(--gum-black);
+      border-radius: 4px;
+      padding: 1.5rem;
+      box-shadow: 4px 4px 0 var(--gum-black);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
     /* Live Feed & Tickets Board */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      background: var(--gum-paper);
+      border: 2px solid var(--gum-black);
+      border-radius: 4px;
+      padding: 1rem 1.25rem;
+      box-shadow: var(--shadow-hard);
+    }
+
+    .search-input-wrap {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .filter-pills {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-pill {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 0.35rem 0.7rem;
+      border: 2px solid var(--gum-black);
+      border-radius: 4px;
+      background: #ffffff;
+      cursor: pointer;
+      box-shadow: 2px 2px 0 var(--gum-black);
+      transition: all 0.12s ease;
+    }
+
+    .filter-pill:hover {
+      background: var(--gum-yellow-soft);
+    }
+
+    .filter-pill.active {
+      background: var(--gum-black);
+      color: #ffffff;
+      box-shadow: 2px 2px 0 var(--gum-pink);
+    }
+
     .tickets-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
@@ -882,38 +1073,100 @@
       background: var(--gum-pink);
     }
 
-    /* Filter pills */
-    .filter-pills {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
+    /* Photo Evidence Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
     }
 
-    .filter-pill {
-      font-family: var(--font-mono);
-      font-size: 0.74rem;
-      font-weight: 700;
-      padding: 0.35rem 0.7rem;
+    .gallery-card {
+      background: var(--gum-paper);
       border: 2px solid var(--gum-black);
       border-radius: 4px;
-      background: #ffffff;
+      overflow: hidden;
+      box-shadow: var(--shadow-hard);
+      transition: transform 0.15s ease;
       cursor: pointer;
-      box-shadow: 2px 2px 0 var(--gum-black);
-      transition: all 0.12s ease;
     }
 
-    .filter-pill:hover {
-      background: var(--gum-yellow-soft);
+    .gallery-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hard-lg);
     }
 
-    .filter-pill.active {
-      background: var(--gum-black);
+    .gallery-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 2px solid var(--gum-black);
+    }
+
+    .gallery-info {
+      padding: 0.85rem;
+    }
+
+    /* Terminal Platform Spec */
+    .terminal-window {
+      background: #000000;
+      color: #00ff66;
+      border: 2px solid var(--gum-black);
+      border-radius: 4px;
+      box-shadow: var(--shadow-hard-lg);
+      font-family: var(--font-mono);
+      overflow: hidden;
+    }
+
+    .terminal-header {
+      background: var(--gum-yellow);
+      color: var(--gum-black);
+      padding: 0.65rem 1rem;
+      border-bottom: 2px solid var(--gum-black);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 800;
+      font-size: 0.85rem;
+    }
+
+    .terminal-dots {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .terminal-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 1px solid var(--gum-black);
+      display: inline-block;
+    }
+
+    .terminal-body {
+      padding: 1.5rem;
+      line-height: 1.7;
+      font-size: 0.88rem;
+      background: #0c0c0c;
+    }
+
+    .terminal-row {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #222222;
+    }
+
+    .terminal-key {
+      color: #999999;
+    }
+
+    .terminal-val {
       color: #ffffff;
-      box-shadow: 2px 2px 0 var(--gum-pink);
+      font-weight: 700;
     }
 
-    /* Admin Console Table */
+    /* Admin Modal & Console */
     .admin-console-box {
       background: var(--gum-paper);
       border: 2px solid var(--gum-black);
@@ -954,7 +1207,7 @@
       background: var(--gum-cream);
     }
 
-    /* Custom Modals (No native alert/confirm) */
+    /* Lightbox Modal */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -1102,10 +1355,111 @@
       color: #777777;
     }
 
+    /* Responsive */
     @media (max-width: 900px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .form-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .pipeline-line,
+      .pipeline-signal-dot {
+        display: none;
+      }
+
+      .pipeline-rail {
+        flex-direction: column;
+        gap: 3.5rem;
+      }
+
+      .pipeline-node-lbl {
+        top: 64px;
+      }
+    }
+  </style>
+  <style>
+    :root {
+      --gum-pink: #90d8ff !important;
+      --gum-pink-soft: #d6f0ff !important;
+    }
+
+    ::selection {
+      background: #90d8ff !important;
+      color: #000000 !important;
+    }
+
+    .brut-btn-pink {
+      background: #90d8ff !important;
+    }
+
+    .brut-btn-pink:hover {
+      background: #70c4f4 !important;
+    }
+
+    .text-stroke-pink {
+      color: #90d8ff !important;
+    }
+
+    .marquee-container {
+      background: #90d8ff !important;
+    }
+
+    .logo-box {
+      box-shadow: 2px 2px 0 #90d8ff !important;
+    }
+
+    .pipeline-signal-dot {
+      background: #90d8ff !important;
+    }
+
+    .pipeline-node.active {
+      background: #90d8ff !important;
+    }
+
+    .cat-pill.active {
+      background: #90d8ff !important;
+    }
+
+    .modal-close {
+      background: #90d8ff !important;
+    }
+
+    .upvote-btn.voted {
+      background: #90d8ff !important;
+    }
+
+    .upvote-btn:hover {
+      background: #d6f0ff !important;
+    }
+
+    .footer-links-title {
+      color: #90d8ff !important;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      box-shadow: 4px 4px 0 #90d8ff !important;
+    }
+
+    .countdown-box {
+      box-shadow: 4px 4px 0 #90d8ff !important;
+    }
+
+    .filter-pill.active {
+      box-shadow: 2px 2px 0 #90d8ff !important;
+    }
+
+    #progress-bar {
+      background: #90d8ff !important;
     }
   </style>
 </head>
@@ -1122,7 +1476,8 @@
         <div class="logo-box">🏛️</div>
         <div>
           <div class="brand-title">CAMPUSCONNECT</div>
-          <div style="font-family: var(--font-mono); font-size: 0.65rem; font-weight: 700; color: rgb(102, 102, 102);">
+          <div style="font-family: var(--font-mono); font-size: 0.65rem; font-weight: 700; color: rgb(102, 102, 102);"
+            class="">
             GRIEVANCE &amp; NOTICE PLATFORM
           </div>
         </div>
@@ -1130,14 +1485,16 @@
 
       <nav>
         <ul class="nav-links" style="display: flex;">
-          <li><a href="#notice-board" class="nav-link">Notices</a></li>
-          <li><a href="#file-grievance" class="nav-link">File Issue</a></li>
-          <li><a href="#live-feed" class="nav-link">Live Feed</a></li>
-          <li><a href="#admin-portal" class="nav-link">Admin Portal</a></li>
+          <li class=""><a href="#notice-board" class="nav-link">Notices</a></li>
+          <li class=""><a href="#file-grievance" class="nav-link">File Issue</a></li>
+          <li class=""></li>
+          <li class=""><a href="#live-feed" class="nav-link">Live Feed</a></li>
+          <li class=""><a href="#admin-portal" class="nav-link">Admin Portal</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
+
         <button id="admin-header-btn" class="brut-btn brut-btn-sm brut-btn-black" onclick="toggleAdminView()">
           ADMIN CONSOLE
         </button>
@@ -1150,13 +1507,13 @@
     <div class="container notice-wrapper">
       <div id="active-notice-box" class="notice-item">
         <span class="notice-badge" id="notice-cat-badge">EXAM</span>
-        <span id="notice-title-text" style="font-weight: 700;">Loading latest campus bulletin...</span>
+        <span id="notice-title-text" style="font-weight: 700;" class="">Loading latest campus bulletin...</span>
       </div>
       <div style="display: flex; gap: 0.5rem; align-items: center;">
         <button class="brut-btn brut-btn-sm" style="padding: 0.2rem 0.5rem;" onclick="cycleNotice(-1)">←</button>
         <button class="brut-btn brut-btn-sm" style="padding: 0.2rem 0.5rem;" onclick="cycleNotice(1)">→</button>
         <button class="brut-btn brut-btn-sm brut-btn-yellow" style="padding: 0.2rem 0.6rem;"
-          onclick="showAllNoticesModal()">VIEW ALL NOTICES (<span id="notices-count">3</span>)</button>
+          onclick="showAllNoticesModal()">VIEW ALL NOTICES (<span id="notices-count" class="">3</span>)</button>
       </div>
     </div>
   </div>
@@ -1164,22 +1521,23 @@
   <!-- Hero Section -->
   <section class="hero-section" id="top">
     <div class="container hero-grid">
+      <!-- Left Column -->
       <div>
-        <div class="hero-tagline">
-          <span>🔥</span> FIREBASE REAL-TIME SYNC ACTIVE
-        </div>
+
         <h1 class="hero-title display-1">
           Every campus issue, <br>
           <span id="typewriter-text" class="text-stroke-pink">fixed in 24 hours.</span>
         </h1>
         <p class="hero-desc">
           Tired of broken lab workstations, leaking hostel taps, or spotty campus Wi-Fi vanishing into red tape?
-          CampusConnect publishes every ticket to a public, transparent ledger synced in real-time via Firebase.
+          CampusConnect publishes every ticket to a public, transparent ledger. Real accountability, real fast.
         </p>
+
+
 
         <div class="hero-stats">
           <div class="stat-card">
-            <div class="stat-val" style="color: var(--gum-pink);" id="stat-count-resolved">84%</div>
+            <div class="stat-val" style="color: rgb(144, 216, 255);" id="stat-count-resolved">84%</div>
             <div class="stat-lbl">Resolution Rate</div>
           </div>
           <div class="stat-card">
@@ -1187,45 +1545,15 @@
             <div class="stat-lbl">Avg Response Time</div>
           </div>
           <div class="stat-card">
-            <div class="stat-val" style="color: var(--gum-green);" id="stat-count-tickets">6</div>
-            <div class="stat-lbl">Active Tickets</div>
+            <div class="stat-val" style="color: var(--gum-green);" id="stat-count-satisfaction">100%</div>
+            <div class="stat-lbl">Public Audit trail</div>
           </div>
         </div>
       </div>
 
-      <!-- Right Column: TechFest '26 Live Countdown -->
+      <!-- Right Column: TechFest '26 Live Countdown & Stickers -->
       <div class="hero-card-stack">
-        <div class="hero-main-card">
-          <div class="countdown-box">
-            <div style="font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; color: #aaa; margin-bottom: 0.25rem;">
-              ⚡ TECHNOCULTZ '26 COUNTDOWN
-            </div>
-            <div style="font-weight: 800; font-size: 1.1rem; color: #fff;">Annual Tech Fest &amp; Hackathon</div>
-            <div class="countdown-digits">
-              <div class="countdown-unit">
-                <div class="countdown-num" id="cd-days">--</div>
-                <div class="countdown-lbl">Days</div>
-              </div>
-              <div class="countdown-unit">
-                <div class="countdown-num" id="cd-hours">--</div>
-                <div class="countdown-lbl">Hours</div>
-              </div>
-              <div class="countdown-unit">
-                <div class="countdown-num" id="cd-mins">--</div>
-                <div class="countdown-lbl">Mins</div>
-              </div>
-              <div class="countdown-unit">
-                <div class="countdown-num" id="cd-secs">--</div>
-                <div class="countdown-lbl">Secs</div>
-              </div>
-            </div>
-          </div>
-          <div style="margin-top: 0.5rem;">
-            <span class="sticker-badge sticker-pink">★ Transparent Audit</span>
-            <span class="sticker-badge sticker-yellow">⚡ 24h Warden SLA</span>
-            <span class="sticker-badge sticker-mint">✓ Real-time Sync</span>
-          </div>
-        </div>
+
       </div>
     </div>
   </section>
@@ -1249,14 +1577,17 @@
     </div>
   </div>
 
-  <!-- Grievance Submission Form Section -->
+
+
+  <!-- Section 3: Grievance Submission Form -->
   <section class="section-wrap" id="file-grievance"
     style="background: var(--gum-paper); border-top: 2px solid var(--gum-black); border-bottom: 2px solid var(--gum-black);">
     <div class="container">
       <div class="section-header">
         <span class="section-eyebrow">SUBMIT A TICKET</span>
         <h2 class="section-title">Report a Campus Issue</h2>
-        <p class="section-sub">All submissions enter the public grievance queue immediately. No login required for students.</p>
+        <p class="section-sub">All submissions enter the public grievance queue immediately. No login required for
+          students.</p>
       </div>
 
       <div class="form-card">
@@ -1264,7 +1595,7 @@
           <div class="form-grid">
             <!-- Department Dropdown -->
             <div class="form-group">
-              <label for="dept-select">Department / Responsibility Desk *</label>
+              <label for="dept-select" class="">Department / Responsibility Desk *</label>
               <select id="dept-select" required="">
                 <option value="">Select Responsible Department...</option>
                 <option value="Computer Science">Computer Science Lab</option>
@@ -1279,31 +1610,32 @@
 
             <!-- Specific Location -->
             <div class="form-group">
-              <label for="loc-input">Specific Location / Room / Block *</label>
-              <input type="text" id="loc-input" placeholder="e.g. C-Block 2nd Floor Stairwell or Room A-204" required="">
+              <label for="loc-input" class="">Specific Location / Room / Block *</label>
+              <input type="text" id="loc-input" placeholder="e.g. C-Block 2nd Floor Stairwell or Room A-204"
+                required="">
             </div>
 
             <!-- Category Selector Pills -->
             <div class="form-group full-width">
-              <label>Issue Category *</label>
+              <label class="">Issue Category *</label>
               <div class="category-pills">
                 <div class="cat-pill active" onclick="selectCategory('SANITATION', this)">
-                  <span>💧</span> Sanitation / Leaks
+                  <span class="">💧</span> Sanitation / Leaks
                 </div>
                 <div class="cat-pill" onclick="selectCategory('LAB_EQUIPMENT', this)">
-                  <span>💻</span> Lab Equipment
+                  <span class="">💻</span> Lab Equipment
                 </div>
                 <div class="cat-pill" onclick="selectCategory('CLASSROOM', this)">
-                  <span>🪑</span> Classroom &amp; Furniture
+                  <span class="">🪑</span> Classroom &amp; Furniture
                 </div>
                 <div class="cat-pill" onclick="selectCategory('HOSTEL', this)">
-                  <span>🏠</span> Hostel Living
+                  <span class="">🏠</span> Hostel Living
                 </div>
                 <div class="cat-pill" onclick="selectCategory('IT_WIFI', this)">
-                  <span>📶</span> IT &amp; Wi-Fi
+                  <span class="">📶</span> IT &amp; Wi-Fi
                 </div>
                 <div class="cat-pill" onclick="selectCategory('SAFETY', this)">
-                  <span>⚠️</span> Campus Safety
+                  <span class="">⚠️</span> Campus Safety
                 </div>
               </div>
               <input type="hidden" id="selected-category" value="SANITATION">
@@ -1311,69 +1643,84 @@
 
             <!-- Issue Description -->
             <div class="form-group full-width">
-              <label for="desc-input">Detailed Description of the Problem *</label>
+              <label for="desc-input" class="">Detailed Description of the Problem *</label>
               <textarea id="desc-input" rows="4"
-                placeholder="Describe what broke, when it happened, and how it impacts classes or dorms..." required=""></textarea>
+                placeholder="Describe what broke, when it happened, and how it impacts classes or dorms..."
+                required=""></textarea>
             </div>
 
-            <!-- Photo Upload Area -->
+            <!-- Photo Upload & Demo Samples -->
             <div class="form-group full-width">
-              <label>Evidence Photo (Optional)</label>
+              <label class="">Evidence Photo (Optional but Recommended)</label>
               <div class="photo-upload-area" onclick="document.getElementById('file-upload').click()">
-                <div style="font-size: 2rem; margin-bottom: 0.25rem;">📸</div>
-                <div style="font-weight: 700; font-size: 0.95rem;">Click to upload an image from your device</div>
-                <div class="mono-text" style="font-size: 0.72rem; color: rgb(102, 102, 102); margin-top: 0.25rem;">PNG, JPG, WEBP accepted (auto-compressed on client)</div>
-                <input type="file" id="file-upload" accept="image/*" style="display: none;" onchange="handleFileSelected(event)">
+                <div style="font-size: 2rem; margin-bottom: 0.25rem;" class="">📸</div>
+                <div style="font-weight: 700; font-size: 0.95rem;" class="">Click to upload an image from your device
+                </div>
+                <div class="mono-text" style="font-size: 0.72rem; color: rgb(102, 102, 102); margin-top: 0.25rem;">PNG,
+                  JPG, WEBP accepted (auto-compressed on client)</div>
+                <input type="file" id="file-upload" accept="image/*" style="display: none;"
+                  onchange="handleFileSelected(event)">
               </div>
+
+              <!-- Quick Demo Photo Pickers -->
+
 
               <!-- Live Preview -->
               <div id="image-preview-container" style="display: none;" class="image-preview-box">
                 <img id="preview-img" src="" alt="Evidence preview" class="preview-thumb">
                 <div style="flex: 1;">
-                  <div class="mono-text" style="font-size: 0.78rem; font-weight: 700;" id="preview-filename">evidence.jpg</div>
-                  <div class="mono-text" style="font-size: 0.68rem; color: rgb(102, 102, 102);">Ready for submission</div>
+                  <div class="mono-text" style="font-size: 0.78rem; font-weight: 700;" id="preview-filename">
+                    evidence.jpg</div>
+                  <div class="mono-text" style="font-size: 0.68rem; color: rgb(102, 102, 102);">Ready for submission
+                  </div>
                 </div>
-                <button type="button" class="brut-btn brut-btn-sm brut-btn-pink" onclick="clearSelectedImage()">REMOVE</button>
+                <button type="button" class="brut-btn brut-btn-sm brut-btn-pink"
+                  onclick="clearSelectedImage()">REMOVE</button>
               </div>
             </div>
           </div>
 
           <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-            <button type="submit" class="brut-btn brut-btn-pink brut-shadow-lg" id="submit-btn" style="padding: 0.85rem 2rem;">
-              <span>Submit Ticket</span>
-            </button>
+
+            <button type="submit" class="brut-btn brut-btn-pink brut-shadow-lg" id="submit-btn"
+              style="padding: 0.85rem 2rem;">
+              <span class="">submit</span></button>
           </div>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- Live Complaints Feed -->
+  <!-- Section 4: Live Complaints Feed -->
   <section class="section-wrap" id="live-feed">
     <div class="container">
       <div class="section-header"
         style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
         <div>
-          <h2 class="section-title" style="font-size: 2.5rem; font-weight: 900; margin-bottom: 0.5rem;">Live Grievance Feed</h2>
-          <p class="section-sub" style="color: rgb(68, 68, 68); font-size: 1rem;">Public ledger of all active tickets. Upvote urgent issues to boost their repair priority.</p>
+          <h2 class="section-title" style="font-size: 2.5rem; font-weight: 900; margin-bottom: 0.5rem;">Live Grievance
+            Feed</h2>
+          <p class="section-sub" style="color: rgb(68, 68, 68); font-size: 1rem;">Public ledger of all active tickets.
+            Upvote urgent issues to boost their repair priority.</p>
         </div>
         <div>
           <button class="brut-btn brut-btn-sm brut-btn-yellow" onclick="simulateNewIncomingTicket()"
             style="font-weight: 800; font-size: 0.85rem; padding: 0.5rem 1rem;">
-            <span>⚡</span> SIMULATE LIVE EVENT
+            <span class="">⚡</span> SIMULATE LIVE EVENT
           </button>
         </div>
       </div>
 
       <!-- Filter & Search Controls -->
-      <div style="background: var(--gum-paper); border: 2px solid var(--gum-black); border-radius: 4px; padding: 1.25rem; box-shadow: var(--shadow-hard); margin-bottom: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+      <div
+        style="background: var(--gum-paper); border: 2px solid var(--gum-black); border-radius: 4px; padding: 1.25rem; box-shadow: var(--shadow-hard); margin-bottom: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+        <!-- Row 1: Search input + Status filters -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
           <div style="flex: 1; min-width: 280px;">
             <input type="text" id="feed-search" placeholder="🔍 Search ticket ID, location, department or keyword..."
               oninput="filterTickets()"
               style="width: 100%; border: 2px solid var(--gum-black); border-radius: 4px; padding: 0.65rem 0.9rem; font-size: 0.9rem; font-family: var(--font-sans); background: #ffffff; box-shadow: 2px 2px 0 var(--gum-black); outline: none;">
           </div>
-          <div class="filter-pills">
+          <div class="filter-pills" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
             <button class="filter-pill active" onclick="setStatusFilter('ALL', this)">All Statuses</button>
             <button class="filter-pill" onclick="setStatusFilter('SUBMITTED', this)">Submitted</button>
             <button class="filter-pill" onclick="setStatusFilter('IN_PROGRESS', this)">In Progress</button>
@@ -1381,7 +1728,8 @@
           </div>
         </div>
 
-        <div class="filter-pills">
+        <!-- Row 2: Category filters -->
+        <div class="filter-pills" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
           <button class="filter-pill active" onclick="setCategoryFilter('ALL', this)">All Categories</button>
           <button class="filter-pill" onclick="setCategoryFilter('SANITATION', this)">Sanitation</button>
           <button class="filter-pill" onclick="setCategoryFilter('LAB_EQUIPMENT', this)">Labs</button>
@@ -1391,67 +1739,268 @@
         </div>
       </div>
 
-      <!-- Tickets Grid -->
-      <div class="tickets-grid" id="tickets-container">
-        <!-- Rendered dynamically from Firebase Realtime Database -->
+      <!-- Tickets Grid (6 cards matching IMAGE_1) -->
+      <div class="tickets-grid" id="tickets-container"
+        style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 1.5rem;">
+        <!-- Card 1: CC-2026-1191 -->
+
+
+        <!-- Card 2: CC-2026-1039 -->
+        <div class="ticket-card" id="card-CC-2026-1039">
+          <div>
+            <div class="ticket-header"
+              style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span class="ticket-code">CC-2026-1039</span>
+              <span class="ticket-status status-COMPLETED">COMPLETED</span>
+            </div>
+            <div class="ticket-meta"
+              style="font-family: var(--font-mono); font-size: 0.72rem; color: #666; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;">
+              <span class="">📍 C-Block Corridor</span>
+              <span class="">•</span>
+              <span class="">🏛️ Hostel Office</span>
+              <span class="">•</span>
+              <span class="">⏱️ 3d ago</span>
+            </div>
+            <p class="ticket-desc"
+              style="font-size: 0.92rem; line-height: 1.5; margin-bottom: 1rem; color: rgb(34, 34, 34);">A supply pipe
+              burst near the C-block stairwell and water has been spreading across the corridor since morning. Floor is
+              slippery and students are tracking water into rooms.</p>
+            <img
+              src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&amp;auto=format&amp;fit=crop&amp;q=80"
+              alt="Flooded corridor" class="ticket-photo"
+              onclick="openLightbox('https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&amp;auto=format&amp;fit=crop&amp;q=80', 'CC-2026-1039 · C-Block Corridor')">
+            <div class="admin-note-box"
+              style="background: var(--gum-green-soft); border: 2px solid var(--gum-black); border-radius: 4px; padding: 0.75rem; margin-bottom: 1rem; font-size: 0.8rem;">
+              <b
+                style="font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; display: block; margin-bottom: 0.2rem;">✓
+                OFFICIAL WARDEN RESOLUTION NOTE:</b>
+              <span class="">Plumbing team replaced the burst valve and sealed the joint. Corridor mopped and verified
+                dry by warden at 6:40 PM.</span>
+            </div>
+          </div>
+          <div class="ticket-footer"
+            style="display: flex; justify-content: space-between; align-items: center; border-top: 2px dashed #000; padding-top: 0.85rem; margin-top: auto;">
+            <button class="upvote-btn" onclick="toggleUpvote('CC-2026-1039')">
+              <span class="">▲</span> <span id="votes-CC-2026-1039" class="">29</span> UPVOTES
+            </button>
+            <span class="mono-badge" style="background: var(--gum-yellow-soft); font-size: 0.65rem;">SANITATION</span>
+          </div>
+        </div>
+
+        <!-- Card 3: CC-2026-1035 -->
+        <div class="ticket-card" id="card-CC-2026-1035">
+          <div>
+            <div class="ticket-header"
+              style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span class="ticket-code">CC-2026-1035</span>
+              <span class="ticket-status status-COMPLETED">COMPLETED</span>
+            </div>
+            <div class="ticket-meta"
+              style="font-family: var(--font-mono); font-size: 0.72rem; color: #666; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;">
+              <span class="">📍 Workshop Block • Room W-112</span>
+              <span class="">•</span>
+              <span class="">🏛️ Mechanical Engg.</span>
+              <span class="">•</span>
+              <span class="">⏱️ 5d ago</span>
+            </div>
+            <p class="ticket-desc"
+              style="font-size: 0.92rem; line-height: 1.5; margin-bottom: 1rem; color: rgb(34, 34, 34);">Third-row bench
+              in W-112 has a cracked wooden top and a detached metal leg. Students have to stand during the 9 AM
+              mechanics lecture.</p>
+            <img
+              src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&amp;auto=format&amp;fit=crop&amp;q=80"
+              alt="Cracked wooden desk" class="ticket-photo"
+              onclick="openLightbox('https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&amp;auto=format&amp;fit=crop&amp;q=80', 'CC-2026-1035 · Workshop Block · Room W-112')">
+            <div class="admin-note-box"
+              style="background: var(--gum-green-soft); border: 2px solid var(--gum-black); border-radius: 4px; padding: 0.75rem; margin-bottom: 1rem; font-size: 0.8rem;">
+              <b
+                style="font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; display: block; margin-bottom: 0.2rem;">✓
+                OFFICIAL WARDEN RESOLUTION NOTE:</b>
+              <span class="">Carpenter re-welded the iron frame and replaced the top solid oak plank. Cleared for
+                lectures.</span>
+            </div>
+          </div>
+          <div class="ticket-footer"
+            style="display: flex; justify-content: space-between; align-items: center; border-top: 2px dashed #000; padding-top: 0.85rem; margin-top: auto;">
+            <button class="upvote-btn" onclick="toggleUpvote('CC-2026-1035')">
+              <span class="">▲</span> <span id="votes-CC-2026-1035" class="">15</span> UPVOTES
+            </button>
+            <span class="mono-badge" style="background: var(--gum-yellow-soft); font-size: 0.65rem;">CLASSROOM</span>
+          </div>
+        </div>
+
+        <!-- Card 4: CC-2026-1042 -->
+        <div class="ticket-card" id="card-CC-2026-1042">
+          <div>
+            <div class="ticket-header"
+              style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span class="ticket-code">CC-2026-1042</span>
+              <span class="ticket-status status-IN_PROGRESS">IN PROGRESS</span>
+            </div>
+            <div class="ticket-meta"
+              style="font-family: var(--font-mono); font-size: 0.72rem; color: #666; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;">
+              <span class="">📍 Digital Lab #2 • Workstation 7</span>
+              <span class="">•</span>
+              <span class="">🏛️ Computer Science</span>
+              <span class="">•</span>
+              <span class="">⏱️ 2d ago</span>
+            </div>
+            <p class="ticket-desc"
+              style="font-size: 0.92rem; line-height: 1.5; margin-bottom: 1rem; color: rgb(34, 34, 34);">Oscilloscope
+              workstation 7 in Digital Lab #2 does not power on at all — no LED, no fan. Mid-sem practicals start next
+              week.</p>
+            <img
+              src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&amp;auto=format&amp;fit=crop&amp;q=80"
+              alt="Computer workstation" class="ticket-photo"
+              onclick="openLightbox('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&amp;auto=format&amp;fit=crop&amp;q=80', 'CC-2026-1042 · Digital Lab #2')">
+          </div>
+          <div class="ticket-footer"
+            style="display: flex; justify-content: space-between; align-items: center; border-top: 2px dashed #000; padding-top: 0.85rem; margin-top: auto;">
+            <button class="upvote-btn" onclick="toggleUpvote('CC-2026-1042')">
+              <span class="">▲</span> <span id="votes-CC-2026-1042" class="">20</span> UPVOTES
+            </button>
+            <span class="mono-badge"
+              style="background: var(--gum-yellow-soft); font-size: 0.65rem;">LAB_EQUIPMENT</span>
+          </div>
+        </div>
+
+        <!-- Card 5: CC-2026-1048 -->
+        <div class="ticket-card" id="card-CC-2026-1048">
+          <div>
+            <div class="ticket-header"
+              style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span class="ticket-code">CC-2026-1048</span>
+              <span class="ticket-status status-IN_PROGRESS">IN PROGRESS</span>
+            </div>
+            <div class="ticket-meta"
+              style="font-family: var(--font-mono); font-size: 0.72rem; color: #666; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;">
+              <span class="">📍 Academic Block A • Room A-204</span>
+              <span class="">•</span>
+              <span class="">🏛️ Computer Science</span>
+              <span class="">•</span>
+              <span class="">⏱️ 1d ago</span>
+            </div>
+            <p class="ticket-desc"
+              style="font-size: 0.92rem; line-height: 1.5; margin-bottom: 1rem; color: rgb(34, 34, 34);">The ceiling
+              projector mount in A-204 has come loose and the projector hangs at an angle. Risk of it falling on
+              students seated in front rows.</p>
+            <img
+              src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&amp;auto=format&amp;fit=crop&amp;q=80"
+              alt="Ceiling projector" class="ticket-photo"
+              onclick="openLightbox('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&amp;auto=format&amp;fit=crop&amp;q=80', 'CC-2026-1048 · Room A-204')">
+          </div>
+          <div class="ticket-footer"
+            style="display: flex; justify-content: space-between; align-items: center; border-top: 2px dashed #000; padding-top: 0.85rem; margin-top: auto;">
+            <button class="upvote-btn" onclick="toggleUpvote('CC-2026-1048')">
+              <span class="">▲</span> <span id="votes-CC-2026-1048" class="">14</span> UPVOTES
+            </button>
+            <span class="mono-badge" style="background: var(--gum-yellow-soft); font-size: 0.65rem;">CLASSROOM</span>
+          </div>
+        </div>
+
+        <!-- Card 6: CC-2026-1051 -->
+        <div class="ticket-card" id="card-CC-2026-1051">
+          <div>
+            <div class="ticket-header"
+              style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span class="ticket-code">CC-2026-1051</span>
+              <span class="ticket-status status-SUBMITTED">SUBMITTED</span>
+            </div>
+            <div class="ticket-meta"
+              style="font-family: var(--font-mono); font-size: 0.72rem; color: #666; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;">
+              <span class="">📍 Hostel B • 2nd Floor Pantry</span>
+              <span class="">•</span>
+              <span class="">🏛️ Hostel Office</span>
+              <span class="">•</span>
+              <span class="">⏱️ 9h ago</span>
+            </div>
+            <p class="ticket-desc"
+              style="font-size: 0.92rem; line-height: 1.5; margin-bottom: 1rem; color: rgb(34, 34, 34);">The drinking
+              water cooler on the second floor is leaking from the tap connection and pooling water around the pantry
+              entrance.</p>
+            <img
+              src="https://images.unsplash.com/photo-1527061011665-3652c757a4d4?w=800&amp;auto=format&amp;fit=crop&amp;q=80"
+              alt="Drinking water cooler" class="ticket-photo"
+              onclick="openLightbox('https://images.unsplash.com/photo-1527061011665-3652c757a4d4?w=800&amp;auto=format&amp;fit=crop&amp;q=80', 'CC-2026-1051 · Hostel B')">
+          </div>
+          <div class="ticket-footer"
+            style="display: flex; justify-content: space-between; align-items: center; border-top: 2px dashed #000; padding-top: 0.85rem; margin-top: auto;">
+            <button class="upvote-btn" onclick="toggleUpvote('CC-2026-1051')">
+              <span class="">▲</span> <span id="votes-CC-2026-1051" class="">15</span> UPVOTES
+            </button>
+            <span class="mono-badge" style="background: var(--gum-yellow-soft); font-size: 0.65rem;">HOSTEL</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Admin Portal / Warden Console -->
+  <!-- Section 5: Photo Evidence Gallery -->
+
+
+  <!-- Section 6: Terminal Platform Spec -->
+  <section class="section-wrap" id="specs"
+    style="background: var(--gum-paper); border-top: 2px solid var(--gum-black); border-bottom: 2px solid var(--gum-black);">
+
+  </section>
+
+  <!-- Section 7: Admin Console / Warden Portal -->
   <section class="section-wrap" id="admin-portal" style="background: var(--gum-cream);">
     <div class="container">
       <div class="section-header">
         <span class="section-eyebrow">WARDEN &amp; FACULTY CONSOLE</span>
         <h2 class="section-title">Admin Management Portal</h2>
-        <p class="section-sub">Update ticket lifecycle statuses, add official resolution notes, post urgent campus bulletins, and export data.</p>
+        <p class="section-sub">Update ticket lifecycle statuses, add official resolution notes, post urgent campus
+          bulletins, and export data.</p>
       </div>
 
-      <!-- Login Gate -->
+      <!-- Login Gate (shown if not logged in) -->
       <div id="admin-login-card" class="form-card" style="max-width: 540px; margin: 0 auto;">
-        <h3 style="font-size: 1.35rem; font-weight: 900; margin-bottom: 0.5rem;">🔒 Admin Login</h3>
-        <p style="font-size: 0.85rem; color: rgb(85, 85, 85); margin-bottom: 1.25rem;">
-          Enter the warden access password (default: <code>warden2026</code>) to manage complaints and post notices.
-        </p>
+        <h3 style="font-size: 1.35rem; font-weight: 900; margin-bottom: 0.5rem;" class="">🔒 Admin Login</h3>
+        <p style="font-size: 0.85rem; color: rgb(85, 85, 85); margin-bottom: 1.25rem;" class="">
+          Enter the warden access password to manage complaints and post notices.&nbsp;</p>
 
         <form onsubmit="handleAdminLogin(event)">
           <div class="form-group" style="margin-bottom: 1rem;">
-            <label for="admin-pass">Access Password</label>
-            <input type="password" id="admin-pass" placeholder="Enter warden password..." required="">
+            <label for="admin-pass" class="">Access Password</label>
+            <input type="password" id="admin-pass" placeholder="Enter warden password..." value="" required="">
           </div>
 
           <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-            <button type="submit" class="brut-btn brut-btn-pink" style="flex: 1 1 0%;">LOGIN AS ADMIN</button>
-            <button type="button" class="brut-btn brut-btn-yellow" onclick="quickDemoLogin()">⚡ 1-CLICK DEMO LOGIN</button>
+            <button type="submit" class="brut-btn brut-btn-pink" style="flex: 1 1 0%;">LOGIN AS admin</button>
+
           </div>
         </form>
       </div>
 
-      <!-- Authenticated Admin Console -->
+      <!-- Authenticated Admin Console (hidden initially) -->
       <div id="admin-dashboard-view" class="admin-console-box" style="display: none;">
-        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 2px solid var(--gum-black); padding-bottom: 1rem;">
+        <div
+          style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 2px solid var(--gum-black); padding-bottom: 1rem;">
           <div>
             <div class="mono-badge" style="background: var(--gum-green);">AUTHENTICATED AS CHIEF WARDEN</div>
-            <h3 style="font-size: 1.5rem; font-weight: 900; margin-top: 0.35rem;">Campus Grievance Dispatch Console</h3>
+            <h3 style="font-size: 1.5rem; font-weight: 900; margin-top: 0.35rem;" class="">Campus Grievance Dispatch
+              Console</h3>
           </div>
           <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
             <button class="brut-btn brut-btn-sm brut-btn-yellow" onclick="showNewNoticeModal()">+ POST NOTICE</button>
             <button class="brut-btn brut-btn-sm" onclick="exportDataJSON()">📥 EXPORT JSON</button>
-            <button class="brut-btn brut-btn-sm" onclick="showResetModal()">🔄 RESET DEMO</button>
+            <button class="brut-btn brut-btn-sm" onclick="resetToDefaultData()">🔄 RESET DEMO</button>
             <button class="brut-btn brut-btn-sm brut-btn-pink" onclick="handleAdminLogout()">LOGOUT</button>
           </div>
         </div>
 
+        <!-- Management Table -->
         <div class="admin-table-wrap">
           <table class="admin-table">
             <thead>
               <tr>
-                <th>Ticket</th>
-                <th>Dept / Room</th>
-                <th>Category</th>
-                <th>Status</th>
-                <th>Upvotes</th>
-                <th>Resolution Action</th>
+                <th class="">Ticket</th>
+                <th class="">Dept / Room</th>
+                <th class="">Category</th>
+                <th class="">Status</th>
+                <th class="">Upvotes</th>
+                <th class="">Resolution Action</th>
               </tr>
             </thead>
             <tbody id="admin-table-body">
@@ -1467,10 +2016,13 @@
   <div class="modal-overlay" id="lightbox-modal" onclick="closeLightbox(event)">
     <div class="modal-content" style="max-width: 700px; text-align: center;">
       <button class="modal-close" onclick="closeLightbox()">✕</button>
-      <h3 id="modal-photo-title" style="font-size: 1.25rem; font-weight: 900; margin-bottom: 1rem; text-align: left;">Evidence Sighting</h3>
+      <h3 id="modal-photo-title" style="font-size: 1.25rem; font-weight: 900; margin-bottom: 1rem; text-align: left;"
+        class="">Evidence Sighting</h3>
       <img id="modal-photo-img" src="" alt="Enlarged evidence"
-        style="width: 100%; max-height: 500px; object-fit: contain; border: 2px solid var(--gum-black); border-radius: 4px; background: rgb(255, 255, 255);">
-      <p id="modal-photo-caption" style="margin-top: 0.75rem; font-size: 0.9rem; text-align: left; color: rgb(68, 68, 68);"></p>
+        style="width: 100%; max-height: 500px; object-fit: contain; border: 2px solid var(--gum-black); border-radius: 4px; background: rgb(255, 255, 255);"
+        class="">
+      <p id="modal-photo-caption"
+        style="margin-top: 0.75rem; font-size: 0.9rem; text-align: left; color: rgb(68, 68, 68);" class=""></p>
     </div>
   </div>
 
@@ -1479,7 +2031,7 @@
     <div class="modal-content">
       <button class="modal-close" onclick="closeNoticesModal()">✕</button>
       <div class="mono-badge" style="background: var(--gum-yellow); margin-bottom: 0.5rem;">CAMPUS BULLETIN</div>
-      <h3 style="font-size: 1.5rem; font-weight: 900; margin-bottom: 1rem;">All Active Campus Notices</h3>
+      <h3 style="font-size: 1.5rem; font-weight: 900; margin-bottom: 1rem;" class="">All Active Campus Notices</h3>
       <div id="all-notices-list" style="display: flex; flex-direction: column; gap: 1rem;">
         <!-- Rendered by JS -->
       </div>
@@ -1490,14 +2042,15 @@
   <div class="modal-overlay" id="new-notice-modal" onclick="closeNewNoticeModal(event)">
     <div class="modal-content">
       <button class="modal-close" onclick="closeNewNoticeModal()">✕</button>
-      <h3 style="font-size: 1.35rem; font-weight: 900; margin-bottom: 1rem;">📢 Post New Campus Notice</h3>
+      <h3 style="font-size: 1.35rem; font-weight: 900; margin-bottom: 1rem;" class="">📢 Post New Campus Notice</h3>
       <form onsubmit="handlePostNotice(event)">
         <div class="form-group" style="margin-bottom: 1rem;">
-          <label for="notice-title-input">Notice Headline *</label>
-          <input type="text" id="notice-title-input" placeholder="e.g. Scheduled Water Maintenance in B-Block" required="">
+          <label for="notice-title-input" class="">Notice Headline *</label>
+          <input type="text" id="notice-title-input" placeholder="e.g. Scheduled Water Maintenance in B-Block"
+            required="">
         </div>
         <div class="form-group" style="margin-bottom: 1rem;">
-          <label for="notice-cat-input">Notice Category *</label>
+          <label for="notice-cat-input" class="">Notice Category *</label>
           <select id="notice-cat-input" required="">
             <option value="EXAM">Examination</option>
             <option value="ACADEMIC">Academic</option>
@@ -1506,127 +2059,114 @@
           </select>
         </div>
         <div class="form-group" style="margin-bottom: 1.25rem;">
-          <label for="notice-body-input">Notice Content *</label>
-          <textarea id="notice-body-input" rows="3" placeholder="Provide full details, timings, and contact personnel..." required=""></textarea>
+          <label for="notice-body-input" class="">Notice Content *</label>
+          <textarea id="notice-body-input" rows="3"
+            placeholder="Provide full details, timings, and contact personnel..." required=""></textarea>
         </div>
         <button type="submit" class="brut-btn brut-btn-yellow" style="width: 100%;">BROADCAST NOTICE</button>
       </form>
     </div>
   </div>
 
-  <!-- Custom Admin Note Modal (Replaces prompt()) -->
-  <div class="modal-overlay" id="admin-note-modal" onclick="closeAdminNoteModal(event)">
-    <div class="modal-content" style="max-width: 500px;">
-      <button class="modal-close" onclick="closeAdminNoteModal()">✕</button>
-      <h3 style="font-size: 1.35rem; font-weight: 900; margin-bottom: 1rem;">✍️ Official Resolution Note</h3>
-      <form onsubmit="submitAdminNote(event)">
-        <input type="hidden" id="note-ticket-id">
-        <div class="form-group" style="margin-bottom: 1.25rem;">
-          <label for="admin-note-text">Resolution Remarks *</label>
-          <textarea id="admin-note-text" rows="4" placeholder="Detail the repairs completed and verification steps..." required=""></textarea>
-        </div>
-        <div style="display: flex; gap: 0.75rem;">
-          <button type="submit" class="brut-btn brut-btn-pink" style="flex: 1;">SAVE NOTE</button>
-          <button type="button" class="brut-btn" onclick="closeAdminNoteModal()">CANCEL</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Custom Confirmation Modal (Replaces confirm()) -->
-  <div class="modal-overlay" id="confirm-modal" onclick="closeConfirmModal(event)">
-    <div class="modal-content" style="max-width: 440px; text-align: center;">
-      <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">⚠️</div>
-      <h3 id="confirm-title" style="font-size: 1.25rem; font-weight: 900; margin-bottom: 0.5rem;">Are you sure?</h3>
-      <p id="confirm-desc" style="font-size: 0.9rem; color: #444; margin-bottom: 1.5rem;"></p>
-      <div style="display: flex; gap: 0.75rem; justify-content: center;">
-        <button id="confirm-yes-btn" class="brut-btn brut-btn-pink" style="flex: 1;">YES, PROCEED</button>
-        <button class="brut-btn" style="flex: 1;" onclick="closeConfirmModal()">CANCEL</button>
-      </div>
-    </div>
-  </div>
-
   <!-- Toast Element -->
-  <div id="toast">
-    <span id="toast-icon">🔔</span>
-    <span id="toast-msg">Subscribed to live updates</span>
+  <div id="toast" class="">
+    <span id="toast-icon" class="">🔔</span>
+    <span id="toast-msg" class="">Subscribed to Ticket #CC-2026-1048 live updates</span>
   </div>
 
   <!-- Footer -->
   <footer>
     <div class="container footer-grid">
       <div>
-        <div class="footer-title">CAMPUSCONNECT</div>
+        <div class="footer-title">CAMPUSCONNECT&nbsp;</div>
         <p class="footer-desc">
           An open, student-first grievance redressal framework and campus dispatch ledger. Built to eliminate
-          administrative bottlenecks with transparent resolution tracking and Firebase real-time synchronization.
+          administrative bottlenecks with transparent resolution tracking.
         </p>
+        <div style="margin-top: 1.25rem;">
+
+        </div>
       </div>
 
       <div>
         <div class="footer-links-title">Quick Navigation</div>
         <ul class="footer-list">
-          <li><a href="#top" class="footer-link">Top of Page</a></li>
-          <li><a href="#notice-board" class="footer-link">Campus Notices</a></li>
-          <li><a href="#file-grievance" class="footer-link">File a Ticket</a></li>
-          <li><a href="#live-feed" class="footer-link">Live Grievance Queue</a></li>
-          <li><a href="#admin-portal" class="footer-link">Admin Portal</a></li>
+          <li class=""><a href="#top" class="footer-link">Top of Page</a></li>
+          <li class=""><a href="#notice-board" class="footer-link">Campus Notices</a></li>
+          <li class=""><a href="#pipeline" class="footer-link">5-Step Pipeline</a></li>
+          <li class=""><a href="#file-grievance" class="footer-link">File a Ticket</a></li>
+          <li class=""><a href="#live-feed" class="footer-link">Live Grievance Queue</a></li>
+          <li class=""><a href="#specs" class="footer-link">Platform Specifications</a></li>
         </ul>
       </div>
 
       <div>
         <div class="footer-links-title">Emergency Contacts</div>
         <ul class="footer-list">
-          <li class="mono-text" style="font-size: 0.85rem; color: rgb(255, 255, 255);">Chief Warden: +91 98765-43210</li>
+          <li class="mono-text" style="font-size: 0.85rem; color: rgb(255, 255, 255);">Chief Warden: +91 98765-43210
+          </li>
           <li class="mono-text" style="font-size: 0.85rem; color: rgb(255, 255, 255);">Campus IT Helpdesk: Ext. 404</li>
           <li class="mono-text" style="font-size: 0.85rem; color: rgb(255, 255, 255);">Hostel Security: Ext. 100</li>
-          <li class="mono-text" style="font-size: 0.85rem; color: rgb(255, 255, 255);">Medical Health Center: Ext. 108</li>
+          <li class="mono-text" style="font-size: 0.85rem; color: rgb(255, 255, 255);">Medical Health Center: Ext. 108
+          </li>
         </ul>
       </div>
     </div>
 
     <div class="container footer-bottom">
-      <div>© 2026 CampusConnect. Free &amp; Open-Source Student Infrastructure.</div>
+      <div class="">© 2026 CampusConnect. Free &amp; Open-Source Student Infrastructure.</div>
       <div style="display: flex; align-items: center; gap: 0.5rem;">
         <span class="pulse-dot"></span>
-        <span>Connected to Firebase RTDB</span>
+
       </div>
     </div>
   </footer>
-
   <!-- ==========================================================================
-       FIREBASE SDK & APP INITIALIZATION
-       ========================================================================== -->
-  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics-compat.js"></script>
+     JAVASCRIPT APPLICATION ENGINE — Firebase Realtime Database Edition
+     ========================================================================== -->
+
+  <!-- Firebase SDK (compat build, served from Google's CDN) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+
   <script>
-    // User Firebase Configuration
+    /* ======================================================================
+       CAMPUSCONNECT — FIREBASE REALTIME DATABASE EDITION
+       ----------------------------------------------------------------------
+       HOW IT WORKS (30-second explainer):
+       1. All tickets live in Firebase at   /tickets
+          All notices live in Firebase at   /notices
+          Ticket number counter lives at    /meta/ticketSeq
+       2. Every browser that opens this page listens to those paths with
+          .on('value'). When ANYONE adds/edits/deletes data, Firebase pushes
+          the change to every connected browser in milliseconds — that is
+          the "real-time" magic. No refresh needed.
+       3. Writes use .push() / .update() / .transaction() / .remove().
+       4. Photos are compressed in the browser and saved as base64 text
+          directly inside the ticket, so you do NOT need Firebase Storage.
+       ====================================================================== */
+
+    /* ---------------------------------------------------------------------
+       ⚙️ STEP 1 — PASTE YOUR FIREBASE CONFIG HERE
+       (Copy it from Firebase Console → Project Settings → Your apps → Web.
+        Full instructions in FIREBASE-SETUP-GUIDE.txt — PART A, Step 5.)
+       IMPORTANT: the "databaseURL" line is REQUIRED. If the console snippet
+       does not include it, add it manually (guide PART A, Step 6).
+       --------------------------------------------------------------------- */
     const firebaseConfig = {
-      apiKey: "AIzaSyB7MNdJfINiO2AvsaBRauaBUzirPKcluM4",
-      authDomain: "campusconnect-18f72.firebaseapp.com",
-      databaseURL: "https://campusconnect-18f72-default-rtdb.firebaseio.com",
-      projectId: "campusconnect-18f72",
-      storageBucket: "campusconnect-18f72.firebasestorage.app",
-      messagingSenderId: "261363493620",
-      appId: "1:261363493620:web:0322126aa194348301cca1",
-      measurementId: "G-Q5YSWDE3P9"
+      apiKey: "AIzaSyAMrRAku1OVe0kIOIquibfzvVz3wMENet4",
+      authDomain: "campusconnect2-9d3df.firebaseapp.com",
+      databaseURL: "https://campusconnect2-9d3df-default-rtdb.asia-southeast1.firebasedatabase.app/",
+      projectId: "campusconnect2-9d3d",
+      storageBucket: "campusconnect2-9d3df.firebasestorage.app",
+      messagingSenderId: "845580461245",
+      appId: "1:845580461245:web:677c9ef0e18e8c3065c3d4"
     };
 
-    // Initialize Firebase & Realtime Database & Analytics
-    const firebaseApp = firebase.initializeApp(firebaseConfig);
-    const db = firebase.database();
-    try {
-      firebase.analytics();
-    } catch (e) {
-      console.log('Analytics initialized or not supported in this iframe environment');
-    }
-  </script>
-
-  <!-- ==========================================================================
-       JAVASCRIPT APPLICATION ENGINE
-       ========================================================================== -->
-  <script>
+    /* ---------------------------------------------------------------------
+       INITIAL SEED DATA — used ONLY the first time, when your database is
+       still empty. After that, everything lives in Firebase.
+       --------------------------------------------------------------------- */
     const DEFAULT_COMPLAINTS = [
       {
         ticket: "CC-2026-1039",
@@ -1638,7 +2178,8 @@
         status: "COMPLETED",
         adminNote: "Plumbing team replaced the burst valve and sealed the joint. Corridor mopped and verified dry by warden at 6:40 PM.",
         upvotes: 24,
-        createdAt: new Date(Date.now() - 72 * 36e5).toISOString()
+        createdAt: new Date(Date.now() - 72 * 36e5).toISOString(),
+        resolvedAt: new Date(Date.now() - 55 * 36e5).toISOString()
       },
       {
         ticket: "CC-2026-1035",
@@ -1650,7 +2191,8 @@
         status: "COMPLETED",
         adminNote: "Carpenter re-welded the iron frame and replaced the top solid oak plank. Cleared for lectures.",
         upvotes: 11,
-        createdAt: new Date(Date.now() - 120 * 36e5).toISOString()
+        createdAt: new Date(Date.now() - 120 * 36e5).toISOString(),
+        resolvedAt: new Date(Date.now() - 96 * 36e5).toISOString()
       },
       {
         ticket: "CC-2026-1042",
@@ -1662,7 +2204,8 @@
         status: "IN_PROGRESS",
         adminNote: null,
         upvotes: 16,
-        createdAt: new Date(Date.now() - 48 * 36e5).toISOString()
+        createdAt: new Date(Date.now() - 48 * 36e5).toISOString(),
+        resolvedAt: null
       },
       {
         ticket: "CC-2026-1048",
@@ -1674,7 +2217,8 @@
         status: "IN_PROGRESS",
         adminNote: null,
         upvotes: 8,
-        createdAt: new Date(Date.now() - 30 * 36e5).toISOString()
+        createdAt: new Date(Date.now() - 30 * 36e5).toISOString(),
+        resolvedAt: null
       },
       {
         ticket: "CC-2026-1051",
@@ -1686,7 +2230,8 @@
         status: "SUBMITTED",
         adminNote: null,
         upvotes: 7,
-        createdAt: new Date(Date.now() - 9 * 36e5).toISOString()
+        createdAt: new Date(Date.now() - 9 * 36e5).toISOString(),
+        resolvedAt: null
       },
       {
         ticket: "CC-2026-1053",
@@ -1698,27 +2243,25 @@
         status: "SUBMITTED",
         adminNote: null,
         upvotes: 35,
-        createdAt: new Date(Date.now() - 4 * 36e5).toISOString()
+        createdAt: new Date(Date.now() - 4 * 36e5).toISOString(),
+        resolvedAt: null
       }
     ];
 
     const DEFAULT_NOTICES = [
       {
-        id: "n-1",
         title: "Mid-Semester Examination Schedule Released",
         body: "Mid-sem exams run Nov 24 – Dec 2 across all departments. Hall tickets are live on the student portal — download before Nov 22, 5 PM.",
         category: "EXAM",
         createdAt: new Date(Date.now() - 6 * 36e5).toISOString()
       },
       {
-        id: "n-2",
         title: "Semester Course Registration Deadline — Nov 30",
         body: "Students yet to register for even-semester courses must complete registration with their academic advisors before Nov 30.",
         category: "ACADEMIC",
         createdAt: new Date(Date.now() - 26 * 36e5).toISOString()
       },
       {
-        id: "n-3",
         title: "TechnoCultz '26 — Annual Tech Fest Hackathon",
         body: "Three days of hackathons, robotics, circuit debugging and a pro-night. Registrations open at the Students' Council desk.",
         category: "EVENT",
@@ -1726,6 +2269,19 @@
       }
     ];
 
+    const PIPELINE_STEPS = [
+      { badge: "STEP 01 OF 05", title: "1. Instant Ticket Generation", desc: "Student logs an issue through the grievance portal with department selection, room location, and urgency tags. An immutable ticket code (CC-2026-XXXX) is provisioned instantly.", sla: "< 15 Minutes" },
+      { badge: "STEP 02 OF 05", title: "2. Photo & Geo-Evidence Audit", desc: "Automated in-browser image compression captures visual proof of the defect or leak without clogging server bandwidth. Preserves student privacy while proving physical condition.", sla: "Instant" },
+      { badge: "STEP 03 OF 05", title: "3. Warden / HOD Escalation", desc: "The designated Hostel Warden, Lab In-Charge, or Estate Officer receives automated notification. Status advances to 'IN PROGRESS' upon administrative acknowledgement.", sla: "< 2 Hours" },
+      { badge: "STEP 04 OF 05", title: "4. Maintenance Crew Dispatch", desc: "Plumbers, electricians, or hardware technicians are dispatched to the physical site with job orders and required replacement parts.", sla: "< 12 Hours" },
+      { badge: "STEP 05 OF 05", title: "5. Student & Admin Sign-Off", desc: "Repairs are photographed and verified. Warden enters official resolution remarks, and ticket status is marked 'COMPLETED' on the public ledger.", sla: "Verified Done" }
+    ];
+
+    /* ---------------------------------------------------------------------
+       APPLICATION STATE
+       complaints + notices are now MIRRORS of the Firebase database.
+       localStorage is only used for per-device votes + admin session.
+       --------------------------------------------------------------------- */
     let complaints = [];
     let notices = [];
     let currentNoticeIndex = 0;
@@ -1734,68 +2290,31 @@
     let currentCategoryFilter = 'ALL';
     let isAdminLoggedIn = false;
     let votedTickets = new Set();
+    let db = null;
+    let dataReady = false;
+    let seedChecked = false;
+    const photoMap = {};
 
-    function loadState() {
-      const storedVotes = localStorage.getItem('cc_user_votes_v2');
-      if (storedVotes) {
-        try { votedTickets = new Set(JSON.parse(storedVotes)); } catch (e) { }
-      }
-
-      if (sessionStorage.getItem('cc_admin_session') === 'active') {
-        isAdminLoggedIn = true;
-      }
-
-      // Realtime Database listeners
-      db.ref('complaints').on('value', (snapshot) => {
-        const data = snapshot.val();
-        if (data) {
-          complaints = Array.isArray(data) ? data : Object.values(data);
-        } else {
-          complaints = JSON.parse(JSON.stringify(DEFAULT_COMPLAINTS));
-          db.ref('complaints').set(complaints);
-        }
-        renderTickets();
-        renderStats();
-        if (isAdminLoggedIn) renderAdminTable();
-      });
-
-      db.ref('notices').on('value', (snapshot) => {
-        const data = snapshot.val();
-        if (data) {
-          notices = Array.isArray(data) ? data : Object.values(data);
-        } else {
-          notices = JSON.parse(JSON.stringify(DEFAULT_NOTICES));
-          db.ref('notices').set(notices);
-        }
-        renderNotice();
-      });
-    }
-
-    function saveComplaints() {
-      db.ref('complaints').set(complaints);
-    }
-
-    function saveNotices() {
-      db.ref('notices').set(notices);
-    }
-
-    function saveVotes() {
-      localStorage.setItem('cc_user_votes_v2', JSON.stringify([...votedTickets]));
+    /* --- SMALL UTILITIES --- */
+    function esc(s) {
+      return String(s === null || s === undefined ? '' : s)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
     }
 
     function showToast(msg, icon = '⚡') {
       const toast = document.getElementById('toast');
+      if (!toast) return;
       document.getElementById('toast-msg').textContent = msg;
       document.getElementById('toast-icon').textContent = icon;
       toast.classList.add('show');
-      setTimeout(() => {
-        toast.classList.remove('show');
-      }, 3500);
+      setTimeout(() => { toast.classList.remove('show'); }, 3500);
     }
 
     function formatTimeAgo(isoString) {
       if (!isoString) return 'recently';
       const diff = Date.now() - new Date(isoString).getTime();
+      if (isNaN(diff)) return 'recently';
       const mins = Math.floor(diff / 60000);
       if (mins < 1) return 'just now';
       if (mins < 60) return `${mins}m ago`;
@@ -1805,8 +2324,158 @@
       return `${days}d ago`;
     }
 
-    // Typewriter
-    const TYPE_PHRASES = ["fixed in 24 hours.", "tracked in real-time.", "seen by the warden.", "transparent & public."];
+    /* --- FIREBASE BOOTSTRAP --- */
+    function fatal(msg) {
+      console.error('[CampusConnect]', msg);
+      const container = document.getElementById('tickets-container');
+      if (container) {
+        container.innerHTML = `
+      <div style="grid-column: 1 / -1; background: var(--gum-red-soft); border: 2px solid var(--gum-black); border-radius: 4px; padding: 2rem; box-shadow: 4px 4px 0 #000;">
+        <h3 style="font-weight: 900; margin-bottom: 0.5rem;">⚠️ Firebase connection problem</h3>
+        <p style="font-size: 0.9rem;">${esc(msg)}</p>
+        <p style="font-size: 0.85rem; margin-top: 0.5rem;">Open <b>FIREBASE-SETUP-GUIDE.txt</b> → check PART A Step 6 (paste your config) and PART D (database rules).</p>
+      </div>`;
+      }
+      setConnBadge(false);
+    }
+
+    function initFirebase() {
+      if (typeof firebase === 'undefined') {
+        fatal('The Firebase SDK could not load. Check your internet connection and reload the page.');
+        return false;
+      }
+      if (!firebaseConfig || !firebaseConfig.apiKey || firebaseConfig.apiKey.indexOf('PASTE_') === 0) {
+        fatal('Firebase is not configured yet. Open this HTML file, find "STEP 1 — PASTE YOUR FIREBASE CONFIG" and paste the config from the Firebase console (guide PART A).');
+        return false;
+      }
+      if (!firebaseConfig.databaseURL || firebaseConfig.databaseURL.indexOf('PASTE_') !== -1) {
+        fatal('Your firebaseConfig is missing a real "databaseURL". Add: databaseURL: "https://YOUR-PROJECT-default-rtdb.firebaseio.com" (guide PART A Step 6).');
+        return false;
+      }
+      try {
+        firebase.initializeApp(firebaseConfig);
+        db = firebase.database();
+        return true;
+      } catch (err) {
+        fatal('Firebase failed to start: ' + err.message);
+        return false;
+      }
+    }
+
+    function setConnBadge(connected) {
+      const textEl = document.getElementById('conn-status-text');
+      const badgeEl = document.getElementById('conn-badge');
+      if (!textEl || !badgeEl) return;
+      if (connected) {
+        textEl.textContent = 'LIVE · FIREBASE';
+        badgeEl.style.background = 'var(--gum-green-soft)';
+      } else {
+        textEl.textContent = 'OFFLINE · RETRYING';
+        badgeEl.style.background = 'var(--gum-red-soft)';
+      }
+    }
+
+    function injectConnBadge() {
+      const actions = document.querySelector('.nav-actions');
+      if (!actions || document.getElementById('conn-badge')) return;
+      const badge = document.createElement('span');
+      badge.className = 'mono-badge pulse-live';
+      badge.id = 'conn-badge';
+      badge.style.cssText = 'background: var(--gum-green-soft); cursor: default;';
+      badge.innerHTML = '<span class="pulse-dot"></span><span id="conn-status-text">CONNECTING…</span>';
+      actions.prepend(badge);
+    }
+
+    function listenRealtime() {
+      /* Connection status badge + one-time seeding check */
+      db.ref('.info/connected').on('value', s => {
+        const connected = s.val() === true;
+        setConnBadge(connected);
+        if (connected && !seedChecked) {
+          seedChecked = true;
+          seedIfEmpty();
+        }
+      });
+
+      /* LIVE TICKETS — fires on every change from ANY device */
+      db.ref('tickets').on('value',
+        snap => {
+          complaints = [];
+          snap.forEach(child => {
+            const v = child.val() || {};
+            complaints.push(Object.assign({ key: child.key }, v));
+          });
+          complaints.sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
+          complaints.forEach(c => { if (c.image) photoMap[c.key] = c.image; });
+          dataReady = true;
+          renderTickets();
+          renderStats();
+          renderGallery();
+          if (isAdminLoggedIn) renderAdminTable();
+        },
+        err => fatal('Could not read tickets: ' + err.message + ' — check your Database Rules (guide PART D).')
+      );
+
+      /* LIVE NOTICES */
+      db.ref('notices').on('value',
+        snap => {
+          notices = [];
+          snap.forEach(child => notices.push(Object.assign({ key: child.key }, child.val())));
+          notices.sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
+          currentNoticeIndex = 0;
+          renderNotice();
+        },
+        err => showToast('Notice sync error: ' + err.message, '⚠️')
+      );
+    }
+
+    /* First run only: if the database is empty, copy the demo data into Firebase. */
+    function seedIfEmpty() {
+      db.ref('tickets').once('value').then(snap => {
+        if (snap.exists()) return;
+        const ticketUpdates = {};
+        DEFAULT_COMPLAINTS.forEach(c => {
+          const k = db.ref('tickets').push().key;
+          ticketUpdates[k] = c;
+        });
+        const noticeUpdates = {};
+        DEFAULT_NOTICES.forEach(n => {
+          const k = db.ref('notices').push().key;
+          noticeUpdates[k] = n;
+        });
+        return Promise.all([
+          db.ref('tickets').update(ticketUpdates),
+          db.ref('notices').update(noticeUpdates),
+          db.ref('meta/ticketSeq').set(1100)
+        ]).then(() => showToast('First run: demo data copied into Firebase', '🌱'));
+      }).catch(err => showToast('Seeding error: ' + err.message, '⚠️'));
+    }
+
+    /* Atomic ticket-number generator (no duplicates even with many users) */
+    function nextTicketCode() {
+      return db.ref('meta/ticketSeq').transaction(cur => (parseInt(cur, 10) || 1100) + 1)
+        .then(res => 'CC-2026-' + res.snapshot.val());
+    }
+
+    /* --- LOCAL STORAGE (per-device only: votes + admin session) --- */
+    function loadLocalState() {
+      try { votedTickets = new Set(JSON.parse(localStorage.getItem('cc_user_votes_v3') || '[]')); }
+      catch (e) { votedTickets = new Set(); }
+      if (sessionStorage.getItem('cc_admin_session') === 'active') isAdminLoggedIn = true;
+    }
+
+    function saveVotes() {
+      localStorage.setItem('cc_user_votes_v3', JSON.stringify([...votedTickets]));
+    }
+
+    /* --- TYPEWRITER EFFECT IN HERO --- */
+    const TYPE_PHRASES = [
+      "fixed in 24 hours.",
+      "tracked in real-time.",
+      "seen by the warden.",
+      "transparent & public.",
+      "verified by students."
+    ];
     let typePhraseIndex = 0;
     let typeCharIndex = 0;
     let isDeleting = false;
@@ -1815,6 +2484,7 @@
       const el = document.getElementById('typewriter-text');
       if (!el) return;
       const currentPhrase = TYPE_PHRASES[typePhraseIndex];
+
       if (isDeleting) {
         typeCharIndex--;
         el.textContent = currentPhrase.substring(0, typeCharIndex);
@@ -1822,7 +2492,9 @@
         typeCharIndex++;
         el.textContent = currentPhrase.substring(0, typeCharIndex);
       }
+
       let speed = isDeleting ? 40 : 70;
+
       if (!isDeleting && typeCharIndex === currentPhrase.length) {
         speed = 2000;
         isDeleting = true;
@@ -1831,14 +2503,15 @@
         typePhraseIndex = (typePhraseIndex + 1) % TYPE_PHRASES.length;
         speed = 400;
       }
+
       setTimeout(runTypewriter, speed);
     }
 
-    // Scroll progress
+    /* --- SCROLL PROGRESS & HEADER --- */
     window.addEventListener('scroll', () => {
       const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (winScroll / height) * 100;
+      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
       const progressBar = document.getElementById('progress-bar');
       if (progressBar) progressBar.style.width = scrolled + '%';
 
@@ -1849,17 +2522,17 @@
       }
     });
 
-    // Countdown
+    /* --- TECHFEST COUNTDOWN (auto-skips if the section is not on the page) --- */
     function updateCountdown() {
+      const dEl = document.getElementById('cd-days');
+      if (!dEl) return;
       const target = new Date("2026-12-07T00:00:00+08:00").getTime();
-      const now = Date.now();
-      const diff = Math.max(0, target - now);
+      const diff = Math.max(0, target - Date.now());
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
       const secs = Math.floor((diff % (1000 * 60)) / 1000);
-
-      document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+      dEl.textContent = String(days).padStart(2, '0');
       document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
       document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
       document.getElementById('cd-secs').textContent = String(secs).padStart(2, '0');
@@ -1867,16 +2540,21 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // Notices
+    /* --- NOTICE BOARD (rendered from Firebase) --- */
     function renderNotice() {
+      const titleEl = document.getElementById('notice-title-text');
+      const badgeEl = document.getElementById('notice-cat-badge');
+      const countEl = document.getElementById('notices-count');
+      if (!titleEl || !badgeEl) return;
       if (!notices.length) {
-        document.getElementById('notice-title-text').textContent = 'No campus notices currently active.';
+        titleEl.textContent = 'No campus notices currently active.';
+        if (countEl) countEl.textContent = '0';
         return;
       }
       const n = notices[currentNoticeIndex % notices.length];
-      document.getElementById('notice-cat-badge').textContent = n.category;
-      document.getElementById('notice-title-text').textContent = n.title;
-      document.getElementById('notices-count').textContent = notices.length;
+      badgeEl.textContent = n.category || 'NOTICE';
+      titleEl.textContent = n.title;
+      if (countEl) countEl.textContent = notices.length;
     }
 
     function cycleNotice(direction) {
@@ -1884,20 +2562,22 @@
       currentNoticeIndex = (currentNoticeIndex + direction + notices.length) % notices.length;
       renderNotice();
     }
+
     setInterval(() => { cycleNotice(1); }, 8000);
 
     function showAllNoticesModal() {
       const container = document.getElementById('all-notices-list');
+      if (!container) return;
       container.innerHTML = notices.map(n => `
-        <div style="background: var(--gum-cream); border: 2px solid var(--gum-black); border-radius: 4px; padding: 1rem;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-            <span class="mono-badge" style="background: var(--gum-yellow);">${n.category}</span>
-            <span class="mono-text" style="font-size: 0.72rem; color: #666;">${formatTimeAgo(n.createdAt)}</span>
-          </div>
-          <h4 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.35rem;">${n.title}</h4>
-          <p style="font-size: 0.88rem; color: #333;">${n.body}</p>
-        </div>
-      `).join('');
+    <div style="background: var(--gum-cream); border: 2px solid var(--gum-black); border-radius: 4px; padding: 1rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+        <span class="mono-badge" style="background: var(--gum-yellow);">${esc(n.category)}</span>
+        <span class="mono-text" style="font-size: 0.72rem; color: #666;">${formatTimeAgo(n.createdAt)}</span>
+      </div>
+      <h4 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.35rem;">${esc(n.title)}</h4>
+      <p style="font-size: 0.88rem; color: #333;">${esc(n.body)}</p>
+    </div>
+  `).join('') || '<p style="color:#666;">No notices posted yet.</p>';
       document.getElementById('notices-modal').classList.add('active');
     }
 
@@ -1907,14 +2587,30 @@
       }
     }
 
-    // Category pills
+    /* --- 5-STEP PIPELINE (auto-skips if the section is not on the page) --- */
+    function selectPipelineStep(index) {
+      const badge = document.getElementById('pipe-badge');
+      if (!badge) return;
+      const nodes = document.querySelectorAll('.pipeline-node');
+      nodes.forEach((n, i) => {
+        if (i === index) n.classList.add('active');
+        else n.classList.remove('active');
+      });
+      const data = PIPELINE_STEPS[index];
+      badge.textContent = data.badge;
+      document.getElementById('pipe-title').textContent = data.title;
+      document.getElementById('pipe-desc').textContent = data.desc;
+      document.getElementById('pipe-sla').textContent = data.sla;
+    }
+
+    /* --- FORM CATEGORY PILL SELECTION --- */
     function selectCategory(cat, el) {
       document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
       el.classList.add('active');
       document.getElementById('selected-category').value = cat;
     }
 
-    // Image upload
+    /* --- IMAGE UPLOAD & CANVAS COMPRESSION --- */
     function handleFileSelected(event) {
       const file = event.target.files[0];
       if (!file) return;
@@ -1924,12 +2620,12 @@
       }
       const reader = new FileReader();
       reader.onload = function (e) {
-        compressImageToDataURL(e.target.result, 1280, 0.78, (compressed) => {
-          selectedImageBase64 = compressed;
-          document.getElementById('preview-img').src = compressed;
-          document.getElementById('preview-filename').textContent = file.name;
-          document.getElementById('image-preview-container').style.display = 'flex';
-          showToast('Photo evidence attached & compressed', '📸');
+        compressImageToDataURL(e.target.result, 1000, 0.72, (c1) => {
+          if (c1.length > 700000) {
+            compressImageToDataURL(c1, 620, 0.58, (c2) => useSelectedPhoto(c2, file.name));
+          } else {
+            useSelectedPhoto(c1, file.name);
+          }
         });
       };
       reader.readAsDataURL(file);
@@ -1949,15 +2645,26 @@
       img.src = src;
     }
 
+    function useSelectedPhoto(dataUrl, name) {
+      selectedImageBase64 = dataUrl;
+      document.getElementById('preview-img').src = dataUrl;
+      document.getElementById('preview-filename').textContent = name || 'evidence.jpg';
+      document.getElementById('image-preview-container').style.display = 'flex';
+      showToast('Photo evidence attached & compressed', '📸');
+    }
+
     function clearSelectedImage() {
       selectedImageBase64 = null;
-      document.getElementById('file-upload').value = '';
+      const fu = document.getElementById('file-upload');
+      if (fu) fu.value = '';
       document.getElementById('image-preview-container').style.display = 'none';
     }
 
-    // Form submit
+    /* --- FORM SUBMISSION → Firebase .push() --- */
     function handleFormSubmit(event) {
       event.preventDefault();
+      if (!db) { showToast('Firebase not connected — see setup guide', '⚠️'); return; }
+
       const dept = document.getElementById('dept-select').value;
       const loc = document.getElementById('loc-input').value.trim();
       const cat = document.getElementById('selected-category').value;
@@ -1968,42 +2675,49 @@
         return;
       }
 
-      const randomTicketNum = 1054 + Math.floor(Math.random() * 800);
-      const newTicket = {
-        ticket: `CC-2026-${randomTicketNum}`,
-        department: dept,
-        category: cat,
-        location: loc,
-        description: desc,
-        image: selectedImageBase64,
-        status: "SUBMITTED",
-        adminNote: null,
-        upvotes: 1,
-        createdAt: new Date().toISOString()
-      };
+      const submitBtn = document.getElementById('submit-btn');
+      const originalHtml = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'PUBLISHING…';
 
-      complaints.unshift(newTicket);
-      saveComplaints();
-
-      document.getElementById('grievance-form').reset();
-      clearSelectedImage();
-      document.getElementById('selected-category').value = 'SANITATION';
-      document.querySelectorAll('.cat-pill').forEach((p, i) => {
-        if (i === 0) p.classList.add('active');
-        else p.classList.remove('active');
-      });
-
-      renderTickets();
-      renderStats();
-      if (isAdminLoggedIn) renderAdminTable();
-
-      showToast(`Ticket ${newTicket.ticket} published to live feed!`, '🎉');
-      setTimeout(() => {
-        document.getElementById('live-feed').scrollIntoView({ behavior: 'smooth' });
-      }, 300);
+      nextTicketCode()
+        .then(code => {
+          const t = {
+            ticket: code,
+            department: dept,
+            category: cat,
+            location: loc,
+            description: desc,
+            status: 'SUBMITTED',
+            upvotes: 1,
+            createdAt: new Date().toISOString(),
+            resolvedAt: null
+          };
+          if (selectedImageBase64) t.image = selectedImageBase64;
+          return db.ref('tickets').push(t);
+        })
+        .then(() => {
+          document.getElementById('grievance-form').reset();
+          clearSelectedImage();
+          document.getElementById('selected-category').value = 'SANITATION';
+          document.querySelectorAll('.cat-pill').forEach((p, i) => {
+            if (i === 0) p.classList.add('active');
+            else p.classList.remove('active');
+          });
+          showToast('Ticket published to the live feed on all devices!', '🎉');
+          setTimeout(() => {
+            const feed = document.getElementById('live-feed');
+            if (feed) feed.scrollIntoView({ behavior: 'smooth' });
+          }, 300);
+        })
+        .catch(err => showToast('Submit failed: ' + err.message, '❌'))
+        .finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalHtml;
+        });
     }
 
-    // Filter & Render
+    /* --- TICKETS FILTERING & RENDERING --- */
     function setStatusFilter(status, el) {
       currentStatusFilter = status;
       el.parentElement.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
@@ -2024,98 +2738,134 @@
 
     function renderTickets() {
       const container = document.getElementById('tickets-container');
-      const searchQuery = (document.getElementById('feed-search')?.value || '').toLowerCase().trim();
+      if (!container) return;
+      const searchInput = document.getElementById('feed-search');
+      const searchQuery = ((searchInput && searchInput.value) || '').toLowerCase().trim();
+
+      if (!dataReady && db) {
+        container.innerHTML = `
+      <div style="grid-column: 1 / -1; background: var(--gum-paper); border: 2px solid var(--gum-black); border-radius: 4px; padding: 3rem; text-align: center; box-shadow: 4px 4px 0 #000;">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🛰️</div>
+        <h3 style="font-size: 1.3rem; font-weight: 800;">Connecting to Firebase Realtime Database…</h3>
+        <p style="color: #666; font-size: 0.9rem; margin-top: 0.25rem;">Tickets will appear here automatically.</p>
+      </div>`;
+        return;
+      }
 
       const filtered = complaints.filter(c => {
         const matchesStatus = (currentStatusFilter === 'ALL' || c.status === currentStatusFilter);
         const matchesCat = (currentCategoryFilter === 'ALL' || c.category === currentCategoryFilter);
         const matchesSearch = !searchQuery ||
-          c.ticket.toLowerCase().includes(searchQuery) ||
-          c.location.toLowerCase().includes(searchQuery) ||
-          c.department.toLowerCase().includes(searchQuery) ||
-          c.description.toLowerCase().includes(searchQuery);
+          String(c.ticket || '').toLowerCase().includes(searchQuery) ||
+          String(c.location || '').toLowerCase().includes(searchQuery) ||
+          String(c.department || '').toLowerCase().includes(searchQuery) ||
+          String(c.description || '').toLowerCase().includes(searchQuery);
         return matchesStatus && matchesCat && matchesSearch;
       });
 
       if (!filtered.length) {
         container.innerHTML = `
-          <div style="grid-column: 1 / -1; background: var(--gum-paper); border: 2px solid var(--gum-black); border-radius: 4px; padding: 3rem; text-align: center;">
-            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔍</div>
-            <h3 style="font-size: 1.3rem; font-weight: 800;">No matching grievances found</h3>
-            <p style="color: #666; font-size: 0.9rem; margin-top: 0.25rem;">Try adjusting your filters or search keywords.</p>
-          </div>
-        `;
+      <div style="grid-column: 1 / -1; background: var(--gum-paper); border: 2px solid var(--gum-black); border-radius: 4px; padding: 3rem; text-align: center;">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔍</div>
+        <h3 style="font-size: 1.3rem; font-weight: 800;">No matching grievances found</h3>
+        <p style="color: #666; font-size: 0.9rem; margin-top: 0.25rem;">Try adjusting your filters or search keywords.</p>
+      </div>`;
         return;
       }
 
       container.innerHTML = filtered.map(c => {
-        const hasVoted = votedTickets.has(c.ticket);
+        const hasVoted = votedTickets.has(c.key);
         const photoHtml = c.image ? `
-          <img src="${c.image}" alt="Evidence" class="ticket-photo" onclick="openLightbox('${c.image}', '${c.ticket} · ${c.location}')" onerror="this.style.display='none'" />
-        ` : '';
-
+      <img src="${esc(c.image)}" alt="Evidence" class="ticket-photo" onclick="openLightboxPhoto('${c.key}')" onerror="this.style.display='none'" />
+    ` : '';
         const adminHtml = c.adminNote ? `
-          <div class="admin-note-box">
-            <b>✓ Official Warden Resolution Note:</b>
-            <span>${c.adminNote}</span>
-          </div>
-        ` : '';
+      <div class="admin-note-box">
+        <b>✓ Official Warden Resolution Note:</b>
+        <span>${esc(c.adminNote)}</span>
+      </div>
+    ` : '';
 
         return `
-          <div class="ticket-card" id="card-${c.ticket}">
-            <div>
-              <div class="ticket-header">
-                <span class="ticket-code">${c.ticket}</span>
-                <span class="ticket-status status-${c.status}">${c.status.replace('_', ' ')}</span>
-              </div>
-              <div class="ticket-meta">
-                <span>📍 ${c.location}</span>
-                <span>•</span>
-                <span>🏛️ ${c.department}</span>
-                <span>•</span>
-                <span>⏱️ ${formatTimeAgo(c.createdAt)}</span>
-              </div>
-              <p class="ticket-desc">${c.description}</p>
-              ${photoHtml}
-              ${adminHtml}
-            </div>
-            <div class="ticket-footer">
-              <button class="upvote-btn ${hasVoted ? 'voted' : ''}" onclick="toggleUpvote('${c.ticket}')">
-                <span>▲</span> <span id="votes-${c.ticket}">${c.upvotes}</span> UPVOTES
-              </button>
-              <span class="mono-badge" style="background: var(--gum-yellow-soft); font-size: 0.65rem;">
-                ${c.category}
-              </span>
-            </div>
+      <div class="ticket-card" id="card-${c.key}">
+        <div>
+          <div class="ticket-header">
+            <span class="ticket-code">${esc(c.ticket)}</span>
+            <span class="ticket-status status-${esc(c.status)}">${esc(String(c.status || '').replace('_', ' '))}</span>
           </div>
-        `;
+          <div class="ticket-meta">
+            <span>📍 ${esc(c.location)}</span>
+            <span>•</span>
+            <span>🏛️ ${esc(c.department)}</span>
+            <span>•</span>
+            <span>⏱️ ${formatTimeAgo(c.createdAt)}</span>
+          </div>
+          <p class="ticket-desc">${esc(c.description)}</p>
+          ${photoHtml}
+          ${adminHtml}
+        </div>
+        <div class="ticket-footer">
+          <button class="upvote-btn ${hasVoted ? 'voted' : ''}" onclick="toggleUpvote('${c.key}')">
+            <span>▲</span> <span id="votes-${c.key}">${parseInt(c.upvotes, 10) || 0}</span> UPVOTES
+          </button>
+          <span class="mono-badge" style="background: var(--gum-yellow-soft); font-size: 0.65rem;">${esc(c.category)}</span>
+        </div>
+      </div>
+    `;
       }).join('');
     }
 
-    function toggleUpvote(ticketId) {
-      const target = complaints.find(c => c.ticket === ticketId);
-      if (!target) return;
-
-      if (votedTickets.has(ticketId)) {
-        votedTickets.delete(ticketId);
-        target.upvotes = Math.max(0, target.upvotes - 1);
-        showToast(`Removed upvote from ${ticketId}`, '🔽');
+    /* --- UPVOTES → Firebase .transaction() (no count ever gets lost) --- */
+    function toggleUpvote(key) {
+      if (!db) return;
+      const voteRef = db.ref('tickets/' + key + '/upvotes');
+      if (votedTickets.has(key)) {
+        votedTickets.delete(key);
+        voteRef.transaction(v => Math.max(0, (parseInt(v, 10) || 1) - 1));
+        showToast('Removed upvote', '🔽');
       } else {
-        votedTickets.add(ticketId);
-        target.upvotes += 1;
-        showToast(`Upvoted ${ticketId}! Increased repair priority.`, '🔥');
+        votedTickets.add(key);
+        voteRef.transaction(v => (parseInt(v, 10) || 0) + 1);
+        showToast('Upvoted! Repair priority increased.', '🔥');
       }
-
       saveVotes();
-      saveComplaints();
       renderTickets();
     }
 
-    // Lightbox
+    /* --- PHOTO EVIDENCE GALLERY (auto-skips if the section is not on the page) --- */
+    function renderGallery() {
+      const container = document.getElementById('gallery-container');
+      if (!container) return;
+      const withPhotos = complaints.filter(c => !!c.image);
+      if (!withPhotos.length) {
+        container.innerHTML = '<p style="color: #666;">No evidence photos recorded yet.</p>';
+        return;
+      }
+      container.innerHTML = withPhotos.map(c => `
+    <div class="gallery-card" onclick="openLightboxPhoto('${c.key}')">
+      <img src="${esc(c.image)}" alt="${esc(c.ticket)}" class="gallery-img" onerror="this.style.display='none'" />
+      <div class="gallery-info">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+          <span class="mono-badge" style="font-size: 0.65rem;">${esc(c.ticket)}</span>
+          <span class="mono-text" style="font-size: 0.68rem; color: #666;">${esc(c.category)}</span>
+        </div>
+        <div style="font-weight: 700; font-size: 0.85rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${esc(c.location)}</div>
+      </div>
+    </div>
+  `).join('');
+    }
+
+    /* --- LIGHTBOX MODAL --- */
     function openLightbox(src, caption) {
       document.getElementById('modal-photo-img').src = src;
-      document.getElementById('modal-photo-caption').textContent = caption;
+      document.getElementById('modal-photo-caption').textContent = caption || '';
       document.getElementById('lightbox-modal').classList.add('active');
+    }
+
+    function openLightboxPhoto(key) {
+      const src = photoMap[key];
+      if (!src) return;
+      const c = complaints.find(x => x.key === key);
+      openLightbox(src, c ? (c.ticket + ' · ' + c.location) : 'Evidence');
     }
 
     function closeLightbox(e) {
@@ -2124,7 +2874,7 @@
       }
     }
 
-    // Simulate Live Event
+    /* --- SIMULATE LIVE EVENT (now creates a REAL ticket everyone can see) --- */
     const SAMPLE_ISSUES = [
       { dept: "Hostel Office", cat: "HOSTEL", loc: "A-Block 3rd Floor Bathroom", desc: "Shower faucet leaking water continuously since noon." },
       { dept: "Computer Science", cat: "LAB_EQUIPMENT", loc: "Systems Lab 1 · Bench 4", desc: "Monitor power adapter sparked and blew fuse on the bench." },
@@ -2133,42 +2883,39 @@
     ];
 
     function simulateNewIncomingTicket() {
+      if (!db) { showToast('Firebase not connected — see setup guide', '⚠️'); return; }
       const sample = SAMPLE_ISSUES[Math.floor(Math.random() * SAMPLE_ISSUES.length)];
-      const num = 1060 + Math.floor(Math.random() * 500);
-      const ticket = {
-        ticket: `CC-2026-${num}`,
-        department: sample.dept,
-        category: sample.cat,
-        location: sample.loc,
-        description: sample.desc,
-        image: null,
-        status: "SUBMITTED",
-        adminNote: null,
-        upvotes: 1,
-        createdAt: new Date().toISOString()
-      };
-
-      complaints.unshift(ticket);
-      saveComplaints();
-      renderTickets();
-      renderStats();
-      if (isAdminLoggedIn) renderAdminTable();
-
-      showToast(`⚡ Live Socket Event: New Ticket ${ticket.ticket} dispatched!`, '🔔');
+      nextTicketCode()
+        .then(code => db.ref('tickets').push({
+          ticket: code,
+          department: sample.dept,
+          category: sample.cat,
+          location: sample.loc,
+          description: sample.desc,
+          status: 'SUBMITTED',
+          upvotes: 1,
+          createdAt: new Date().toISOString(),
+          resolvedAt: null
+        }))
+        .then(() => showToast('⚡ Live event dispatched to every device!', '🔔'))
+        .catch(err => showToast('Failed: ' + err.message, '❌'));
     }
 
+    /* --- LIVE STATS --- */
     function renderStats() {
       const total = complaints.length;
       const completed = complaints.filter(c => c.status === 'COMPLETED').length;
       const rate = total > 0 ? Math.round((completed / total) * 100) : 100;
-
-      document.getElementById('stat-count-resolved').textContent = `${rate}%`;
-      document.getElementById('stat-count-tickets').textContent = total;
+      const rateEl = document.getElementById('stat-count-resolved');
+      if (rateEl) rateEl.textContent = rate + '%';
+      const totalEl = document.getElementById('hero-total-tickets');
+      if (totalEl) totalEl.textContent = total;
     }
 
-    // Admin Portal & Auth
+    /* --- ADMIN VIEW & AUTHENTICATION --- */
     function toggleAdminView() {
-      document.getElementById('admin-portal').scrollIntoView({ behavior: 'smooth' });
+      const adminSec = document.getElementById('admin-portal');
+      if (adminSec) adminSec.scrollIntoView({ behavior: 'smooth' });
     }
 
     function handleAdminLogin(event) {
@@ -2184,13 +2931,6 @@
       }
     }
 
-    function quickDemoLogin() {
-      isAdminLoggedIn = true;
-      sessionStorage.setItem('cc_admin_session', 'active');
-      showToast('1-Click Demo Login Granted!', '⚡');
-      updateAdminUI();
-    }
-
     function handleAdminLogout() {
       isAdminLoggedIn = false;
       sessionStorage.removeItem('cc_admin_session');
@@ -2202,6 +2942,7 @@
       const loginCard = document.getElementById('admin-login-card');
       const dashView = document.getElementById('admin-dashboard-view');
       const headerBtn = document.getElementById('admin-header-btn');
+      if (!loginCard || !dashView || !headerBtn) return;
 
       if (isAdminLoggedIn) {
         loginCard.style.display = 'none';
@@ -2221,129 +2962,76 @@
 
     function renderAdminTable() {
       const tbody = document.getElementById('admin-table-body');
+      if (!tbody) return;
       tbody.innerHTML = complaints.map(c => `
-        <tr>
-          <td>
-            <b>${c.ticket}</b><br/>
-            <span class="mono-text" style="font-size: 0.7rem; color: #666;">${formatTimeAgo(c.createdAt)}</span>
-          </td>
-          <td>
-            <b>${c.location}</b><br/>
-            <span style="font-size: 0.75rem;">${c.department}</span>
-          </td>
-          <td><span class="mono-badge" style="font-size: 0.65rem;">${c.category}</span></td>
-          <td>
-            <select onchange="updateTicketStatus('${c.ticket}', this.value)" style="padding: 0.25rem 0.5rem; font-size: 0.8rem; font-weight: bold; background: var(--gum-paper);">
-              <option value="SUBMITTED" ${c.status === 'SUBMITTED' ? 'selected' : ''}>SUBMITTED</option>
-              <option value="IN_PROGRESS" ${c.status === 'IN_PROGRESS' ? 'selected' : ''}>IN PROGRESS</option>
-              <option value="COMPLETED" ${c.status === 'COMPLETED' ? 'selected' : ''}>COMPLETED</option>
-            </select>
-          </td>
-          <td>${c.upvotes}</td>
-          <td>
-            <button class="brut-btn brut-btn-sm" onclick="openAdminNoteModal('${c.ticket}')">
-              ${c.adminNote ? 'EDIT NOTE' : '+ ADD NOTE'}
-            </button>
-            <button class="brut-btn brut-btn-sm brut-btn-pink" onclick="showDeleteModal('${c.ticket}')" style="margin-left: 0.35rem;">
-              🗑️
-            </button>
-          </td>
-        </tr>
-      `).join('');
+    <tr>
+      <td>
+        <b>${esc(c.ticket)}</b><br/>
+        <span class="mono-text" style="font-size: 0.7rem; color: #666;">${formatTimeAgo(c.createdAt)}</span>
+      </td>
+      <td>
+        <b>${esc(c.location)}</b><br/>
+        <span style="font-size: 0.75rem;">${esc(c.department)}</span>
+      </td>
+      <td><span class="mono-badge" style="font-size: 0.65rem;">${esc(c.category)}</span></td>
+      <td>
+        <select onchange="updateTicketStatus('${c.key}', this.value)" style="padding: 0.25rem 0.5rem; font-size: 0.8rem; font-weight: bold; background: var(--gum-paper);">
+          <option value="SUBMITTED" ${c.status === 'SUBMITTED' ? 'selected' : ''}>SUBMITTED</option>
+          <option value="IN_PROGRESS" ${c.status === 'IN_PROGRESS' ? 'selected' : ''}>IN PROGRESS</option>
+          <option value="COMPLETED" ${c.status === 'COMPLETED' ? 'selected' : ''}>COMPLETED</option>
+        </select>
+      </td>
+      <td>${parseInt(c.upvotes, 10) || 0}</td>
+      <td>
+        <button class="brut-btn brut-btn-sm" onclick="promptAdminNote('${c.key}')">
+          ${c.adminNote ? 'EDIT NOTE' : '+ ADD NOTE'}
+        </button>
+        <button class="brut-btn brut-btn-sm brut-btn-pink" onclick="deleteTicket('${c.key}')" style="margin-left: 0.35rem;">
+          🗑️
+        </button>
+      </td>
+    </tr>
+  `).join('');
     }
 
-    function updateTicketStatus(ticketId, newStatus) {
-      const target = complaints.find(c => c.ticket === ticketId);
-      if (!target) return;
-      target.status = newStatus;
-      if (newStatus === 'COMPLETED' && !target.adminNote) {
-        target.adminNote = "Repairs inspected and verified by duty supervisor.";
+    /* --- ADMIN ACTIONS → Firebase .update() / .set() / .remove() --- */
+    function updateTicketStatus(key, newStatus) {
+      if (!db) return;
+      const target = complaints.find(c => c.key === key);
+      const upd = { status: newStatus };
+      if (newStatus === 'COMPLETED') {
+        upd.resolvedAt = new Date().toISOString();
+        if (target && !target.adminNote) {
+          upd.adminNote = 'Repairs inspected and verified by duty supervisor.';
+        }
       }
-      saveComplaints();
-      renderTickets();
-      renderStats();
-      showToast(`Updated ${ticketId} status to ${newStatus}`, '✓');
+      db.ref('tickets/' + key).update(upd)
+        .then(() => showToast('Updated status to ' + newStatus.replace('_', ' '), '✓'))
+        .catch(err => showToast('Update failed: ' + err.message, '❌'));
     }
 
-    // Custom Admin Note Modal
-    function openAdminNoteModal(ticketId) {
-      const target = complaints.find(c => c.ticket === ticketId);
-      if (!target) return;
-      document.getElementById('note-ticket-id').value = ticketId;
-      document.getElementById('admin-note-text').value = target.adminNote || '';
-      document.getElementById('admin-note-modal').classList.add('active');
+    function promptAdminNote(key) {
+      if (!db) return;
+      const target = complaints.find(c => c.key === key);
+      const current = (target && target.adminNote) ? target.adminNote : '';
+      const note = prompt('Enter official resolution note:', current);
+      if (note === null) return;
+      db.ref('tickets/' + key + '/adminNote').set(note.trim() || null)
+        .then(() => showToast('Resolution note saved', '📝'))
+        .catch(err => showToast('Save failed: ' + err.message, '❌'));
     }
 
-    function closeAdminNoteModal(e) {
-      if (!e || e.target.id === 'admin-note-modal' || e.target.classList.contains('modal-close') || e.target.classList.contains('brut-btn')) {
-        document.getElementById('admin-note-modal').classList.remove('active');
-      }
+    function deleteTicket(key) {
+      if (!db) return;
+      const target = complaints.find(c => c.key === key);
+      const code = target ? target.ticket : 'this ticket';
+      if (!confirm('Delete ' + code + '? This removes it for EVERYONE.')) return;
+      db.ref('tickets/' + key).remove()
+        .then(() => showToast('Ticket ' + code + ' deleted', '🗑️'))
+        .catch(err => showToast('Delete failed: ' + err.message, '❌'));
     }
 
-    function submitAdminNote(e) {
-      e.preventDefault();
-      const ticketId = document.getElementById('note-ticket-id').value;
-      const note = document.getElementById('admin-note-text').value.trim();
-      const target = complaints.find(c => c.ticket === ticketId);
-      if (target) {
-        target.adminNote = note || null;
-        saveComplaints();
-        renderTickets();
-        renderAdminTable();
-        showToast(`Resolution note saved for ${ticketId}`, '📝');
-      }
-      document.getElementById('admin-note-modal').classList.remove('active');
-    }
-
-    // Custom Confirmation Modal
-    let pendingConfirmAction = null;
-
-    function showConfirmModal(title, desc, actionCallback) {
-      document.getElementById('confirm-title').textContent = title;
-      document.getElementById('confirm-desc').textContent = desc;
-      pendingConfirmAction = actionCallback;
-      document.getElementById('confirm-modal').classList.add('active');
-    }
-
-    function closeConfirmModal(e) {
-      if (!e || e.target.id === 'confirm-modal' || e.target.classList.contains('brut-btn') || e.target.classList.contains('modal-close')) {
-        document.getElementById('confirm-modal').classList.remove('active');
-        pendingConfirmAction = null;
-      }
-    }
-
-    document.getElementById('confirm-yes-btn').addEventListener('click', () => {
-      if (pendingConfirmAction) pendingConfirmAction();
-      document.getElementById('confirm-modal').classList.remove('active');
-      pendingConfirmAction = null;
-    });
-
-    function showDeleteModal(ticketId) {
-      showConfirmModal("Delete Ticket?", `Are you sure you want to permanently delete ticket ${ticketId}?`, () => {
-        complaints = complaints.filter(c => c.ticket !== ticketId);
-        saveComplaints();
-        renderTickets();
-        renderStats();
-        renderAdminTable();
-        showToast(`Ticket ${ticketId} deleted`, '🗑️');
-      });
-    }
-
-    function showResetModal() {
-      showConfirmModal("Reset Demo Data?", "Reset all grievance tickets and notices to fresh default data?", () => {
-        complaints = JSON.parse(JSON.stringify(DEFAULT_COMPLAINTS));
-        notices = JSON.parse(JSON.stringify(DEFAULT_NOTICES));
-        db.ref('complaints').set(complaints);
-        db.ref('notices').set(notices);
-        renderNotice();
-        renderTickets();
-        renderStats();
-        renderAdminTable();
-        showToast('Reset to pristine demo data!', '🔄');
-      });
-    }
-
-    // Post Notice Modal
+    /* --- POST NEW NOTICE → Firebase .push() --- */
     function showNewNoticeModal() {
       document.getElementById('new-notice-modal').classList.add('active');
     }
@@ -2356,29 +3044,28 @@
 
     function handlePostNotice(e) {
       e.preventDefault();
+      if (!db) { showToast('Firebase not connected — see setup guide', '⚠️'); return; }
       const title = document.getElementById('notice-title-input').value.trim();
       const cat = document.getElementById('notice-cat-input').value;
       const body = document.getElementById('notice-body-input').value.trim();
-
       if (!title || !body) return;
 
-      const newNotice = {
-        id: `n-${Date.now()}`,
-        title,
-        body,
+      db.ref('notices').push({
+        title: title,
+        body: body,
         category: cat,
         createdAt: new Date().toISOString()
-      };
-
-      notices.unshift(newNotice);
-      saveNotices();
-      renderNotice();
-      closeNewNoticeModal();
-      document.getElementById('notice-title-input').value = '';
-      document.getElementById('notice-body-input').value = '';
-      showToast('New campus notice broadcasted!', '📢');
+      })
+        .then(() => {
+          closeNewNoticeModal();
+          document.getElementById('notice-title-input').value = '';
+          document.getElementById('notice-body-input').value = '';
+          showToast('Notice broadcasted to all devices!', '📢');
+        })
+        .catch(err => showToast('Failed: ' + err.message, '❌'));
     }
 
+    /* --- EXPORT & RESET --- */
     function exportDataJSON() {
       const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(complaints, null, 2));
       const downloadAnchor = document.createElement('a');
@@ -2387,17 +3074,39 @@
       document.body.appendChild(downloadAnchor);
       downloadAnchor.click();
       downloadAnchor.remove();
-      showToast('Exported complaint data as JSON', '📥');
+      showToast('Exported ticket data as JSON', '📥');
     }
 
+    function resetToDefaultData() {
+      if (!db) return;
+      if (!confirm('Wipe ALL tickets & notices in Firebase and restore fresh demo data?')) return;
+      Promise.all([db.ref('tickets').remove(), db.ref('notices').remove()])
+        .then(() => db.ref('meta/ticketSeq').set(1100))
+        .then(() => seedIfEmpty())
+        .then(() => {
+          votedTickets.clear();
+          saveVotes();
+          showToast('Database reset to pristine demo data!', '🔄');
+        })
+        .catch(err => showToast('Reset failed: ' + err.message, '❌'));
+    }
+
+    /* --- BOOTSTRAP APPLICATION --- */
     document.addEventListener('DOMContentLoaded', () => {
-      loadState();
+      loadLocalState();
       runTypewriter();
       renderNotice();
+      renderTickets();
+      renderGallery();
       updateAdminUI();
+      selectPipelineStep(0);
+      injectConnBadge();
+
+      if (initFirebase()) {
+        listenRealtime();
+      }
     });
   </script>
-
 </body>
 
 </html>
